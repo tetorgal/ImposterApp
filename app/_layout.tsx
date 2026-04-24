@@ -6,7 +6,7 @@ import { StatusBar } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts, Poppins_400Regular, Poppins_700Bold } from '@expo-google-fonts/poppins';
 import { useEffect } from 'react';
-import TopNavBar from '../components/ui/TopNavBar';
+import TopNavBar from '@components/ui/TopNavBar';
 
 SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
@@ -36,8 +36,17 @@ export default function RootLayout() {
         <Stack.Screen name="index" options={{ title: 'Home', headerShown: true }}></Stack.Screen>
         <Stack.Screen name="about" options={{ title: 'About', headerShown: true }}></Stack.Screen>
         <Stack.Screen
-          name="offline-pregame"
+          name="offline/offline-pregame"
           options={{ title: 'Offline', headerShown: true }}></Stack.Screen>
+        <Stack.Screen
+          name="offline/offline-players"
+          options={{ title: 'Players', headerShown: true }}></Stack.Screen>
+        <Stack.Screen
+          name="offline/offline-rounds"
+          options={{ title: 'Rounds', headerShown: true }}></Stack.Screen>
+        <Stack.Screen
+          name="offline/offline-time"
+          options={{ title: 'Time', headerShown: true }}></Stack.Screen>
       </Stack>
       <StatusBar className="" />
     </SafeAreaProvider>

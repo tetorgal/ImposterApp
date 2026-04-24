@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView, Pressable } from 'react-native';
-import StyledIcon from '../components/ui/StyledIcon';
-import StyledCheckBox from '../components/ui/StyledCheckBox';
-import StyledGradient from '../components/ui/StyledGradient';
+import StyledIcon from '@components/ui/StyledIcon';
+import StyledCheckBox from '@components/ui/StyledCheckBox';
+import StyledGradient from '@components/ui/StyledGradient';
 import ToggleSwitch from 'toggle-switch-react-native';
+import { HeaderIcon } from '@components/ui/HeaderIcon';
+import { useRouter } from 'expo-router';
 
 const GAME_MODE_OPTIONS = [
   {
     label: 'Clasico',
     value: 'classic',
-    imageSource: require('../assets/sus-dog.png'),
+    imageSource: require('@assets/sus-dog.png'),
   },
   {
     label: 'Misterioso',
     value: 'mysterious',
-    imageSource: require('../assets/icon.png'),
+    imageSource: require('@assets/icon.png'),
   },
   {
     label: 'Caos',
     value: 'chaos',
-    imageSource: require('../assets/adaptive-icon.png'),
+    imageSource: require('@assets/adaptive-icon.png'),
   },
 ];
 
@@ -28,6 +30,7 @@ export default function OfflinePregame() {
   const players = 8;
   const [impostors, setImpostors] = useState<number>(2);
   const [hintsEnabled, setHintsEnabled] = useState<boolean>(true);
+  const router = useRouter();
 
   const decrementImpostors = () => {
     setImpostors((current) => Math.max(1, current - 1));
@@ -39,10 +42,7 @@ export default function OfflinePregame() {
 
   return (
     <View className="flex-1 bg-slate-900 p-4 pb-32">
-      <View className="my-4 flex items-center justify-center">
-        <StyledIcon name="mobile" type="font-awesome" size={40} colorName="orange-400"></StyledIcon>
-        <Text className="font-poppins text-xl font-bold text-slate-200 ">Offline</Text>
-      </View>
+      <HeaderIcon title="Offline" iconName="mobile" iconColorName="orange-400" />
 
       <View className="my-4 mt-4 w-full">
         <Text className="mb-2 text-center  font-poppins font-bold text-gray-200">
@@ -76,7 +76,9 @@ export default function OfflinePregame() {
       </Text>
 
       <View className="my-4 rounded-xl border border-slate-700 bg-slate-800 px-4 py-2">
-        <Pressable className="group flex-row items-center justify-between py-2">
+        <Pressable
+          className="group flex-row items-center justify-between py-2"
+          onPress={() => router.navigate('/offline/offline-players')}>
           <View className="flex flex-row items-center gap-2 ">
             <View className="group-active:opacity-70">
               <StyledIcon

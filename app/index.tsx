@@ -1,8 +1,8 @@
 import { View, Text, Pressable } from 'react-native';
-import AppHeader from '../components/ui/AppHeader';
-import ModeCard from '../components/ui/ModeCard';
-import SectionTitle from '../components/ui/SectionTitle';
-import StyledIcon from '../components/ui/StyledIcon';
+import AppHeader from '@components/ui/AppHeader';
+import ModeCard from '@components/ui/ModeCard';
+import SectionTitle from '@components/ui/SectionTitle';
+import StyledIcon from '@components/ui/StyledIcon';
 import { useRouter } from 'expo-router';
 
 export default function Index() {
@@ -11,7 +11,7 @@ export default function Index() {
   return (
     <View className="flex-1 bg-slate-900 p-4">
       <View className="flex items-center justify-center">
-        <AppHeader title="Impostor" imageSource={require('../assets/sus-dog.png')} />
+        <AppHeader title="Impostor" imageSource={require('@assets/sus-dog.png')} />
         <SectionTitle title="Modo de juego" />
         <View className="my-5 flex flex-row gap-4">
           <ModeCard
@@ -22,7 +22,7 @@ export default function Index() {
             iconColorName="orange-300"
             gradient={['purple-400', 'purple-600']}
             buttonLabel="Jugar"
-            onPress={() => router.navigate('/offline-pregame')}
+            onPress={() => router.navigate('/offline/offline-pregame')}
           />
           <ModeCard
             title="En linea"
