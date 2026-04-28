@@ -7,13 +7,22 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useFonts, Poppins_400Regular, Poppins_700Bold } from '@expo-google-fonts/poppins';
 import { useEffect } from 'react';
 import TopNavBar from '@components/ui/TopNavBar';
+import { ConvexProvider, ConvexReactClient } from 'convex/react';
 
 SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
+  // CONVEX API CONF
+  const convex = new ConvexReactClient(process.env.EXPO_PUBLIC_CONVEX_URL!, {
+    unsavedChangesWarning: false,
+  });
+
   const [fontsLoaded, fontError] = useFonts({
     PRegular: Poppins_400Regular,
     PBold: Poppins_700Bold,
   });
+
+  const createHeader = (variant: 'home' | 'back') => () => <TopNavBar variant={variant} />;
+
   useEffect(() => {
     if (fontsLoaded || fontError) {
       SplashScreen.hideAsync();
@@ -24,31 +33,42 @@ export default function RootLayout() {
     return null;
   }
   return (
-    <SafeAreaProvider>
-      <Stack
-        screenOptions={{
-          headerStyle: { backgroundColor: '#0f172a' },
-          headerTintColor: '#f8fafc',
-          headerTitle: '',
-          headerShadowVisible: false,
-          header: () => <TopNavBar />,
-        }}>
-        <Stack.Screen name="index" options={{ title: 'Home', headerShown: true }}></Stack.Screen>
-        <Stack.Screen name="about" options={{ title: 'About', headerShown: true }}></Stack.Screen>
-        <Stack.Screen
-          name="offline/offline-pregame"
-          options={{ title: 'Offline', headerShown: true }}></Stack.Screen>
-        <Stack.Screen
-          name="offline/offline-players"
-          options={{ title: 'Players', headerShown: true }}></Stack.Screen>
-        <Stack.Screen
-          name="offline/offline-rounds"
-          options={{ title: 'Rounds', headerShown: true }}></Stack.Screen>
-        <Stack.Screen
-          name="offline/offline-time"
-          options={{ title: 'Time', headerShown: true }}></Stack.Screen>
-      </Stack>
-      <StatusBar className="" />
-    </SafeAreaProvider>
+    <ConvexProvider client={convex}>
+      <SafeAreaProvider>
+        <Stack
+          screenOptions={{
+            headerStyle: { backgroundColor: '#0f172a' },
+            headerTintColor: '#c4c4c4',
+            headerTitle: '',
+            headerShadowVisible: false,
+          }}>
+          <Stack.Screen
+            name="index"
+            options={{ title: 'Home', headerShown: true, header: createHeader('home') }}
+          />
+          <Stack.Screen
+            name="about"
+            options={{ title: 'About', headerShown: true, header: createHeader('back') }}
+          />
+          <Stack.Screen
+            name="offline/offline-pregame"
+            options={{ title: 'Offline', headerShown: true, header: createHeader('home') }}
+          />
+          <Stack.Screen
+            name="offline/offline-players"
+            options={{ title: 'Players', headerShown: true, header: createHeader('back') }}
+          />
+          <Stack.Screen
+            name="offline/offline-rounds"
+            options={{ title: 'Rounds', headerShown: true, header: createHeader('back') }}
+          />
+          <Stack.Screen
+            name="offline/offline-time"
+            options={{ title: 'Time', headerShown: true, header: createHeader('back') }}
+          />
+        </Stack>
+        <StatusBar barStyle="light-content" />
+      </SafeAreaProvider>
+    </ConvexProvider>
   );
 }

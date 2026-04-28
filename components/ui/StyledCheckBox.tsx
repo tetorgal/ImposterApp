@@ -32,7 +32,7 @@ export default function StyledCheckBox({
       </View>
 
       <Image source={imageSource} className="h-24 w-full rounded-lg p-4" resizeMode="cover" />
-      <Text className="text-center font-poppins text-base font-bold text-slate-100">{title}</Text>
+      <Text className="text-center font-poppins text-base  text-slate-100">{title}</Text>
     </Pressable>
   );
 }
