@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { View } from 'react-native';
 import { HeaderIcon } from '@components/ui/HeaderIcon';
 import ListView from '@components/ui/ListView';
+import { Clock } from 'lucide-react-native';
+import { themeColors } from '@lib/theme';
 
 export default function OfflinePregame() {
   const [selectedMinutes, setSelectedMinutes] = useState<number>(4);
@@ -26,8 +28,8 @@ export default function OfflinePregame() {
     <View className="flex-1 bg-slate-900 p-4 pb-32">
       <HeaderIcon
         title="Duración"
-        iconName="history"
-        iconColorName="gray-200"
+        iconName={Clock}
+        iconColorName={themeColors.gray}
         subtitle="Recomendado segun el tamaño de tu grupo"
       />
 

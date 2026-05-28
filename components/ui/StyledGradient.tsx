@@ -1,28 +1,20 @@
-import { LinearGradient, LinearGradientProps } from 'expo-linear-gradient';
-import { cssInterop } from 'nativewind';
-import { colors } from '../../lib/tailwind';
+// import React from 'react';
+// import { LinearGradient, LinearGradientProps } from 'expo-linear-gradient';
+// import { withUniwind } from 'uniwind';
 
-// Allow className to be passed to LinearGradient
-cssInterop(LinearGradient, { className: 'style' });
+// const StyledLinearGradient = withUniwind(LinearGradient);
+// interface StyledGradientProps extends LinearGradientProps {
+//   className?: string;
+// }
 
-interface StyledGradientProps extends Omit<LinearGradientProps, 'colors'> {
-  colorNames: [string, string];
-}
+// const StyledGradient = ({ className, ...props }: StyledGradientProps) => {
+//   return (
+//     <StyledLinearGradient
 
-const StyledGradient = ({ colorNames, ...props }: StyledGradientProps) => {
-  const [startColorName, startShade] = colorNames[0].split('-');
-  const [endColorName, endShade] = colorNames[1].split('-');
+//       className={className}
+//       {...props}
+//     />
+//   );
+// };
 
-  const resolvedStartColor: string =
-    (colors as { [key: string]: any })[startColorName]?.[startShade] ||
-    (colors as { [key: string]: any })[startColorName] ||
-    '#000';
-  const resolvedEndColor: string =
-    (colors as { [key: string]: any })[endColorName]?.[endShade] ||
-    (colors as { [key: string]: any })[endColorName] ||
-    '#FFF';
-
-  return <LinearGradient colors={[resolvedStartColor, resolvedEndColor]} {...props} />;
-};
-
-export default StyledGradient;
+// export default StyledGradient;

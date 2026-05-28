@@ -1,7 +1,9 @@
 import React, { ReactNode } from 'react';
 import { Pressable, Text, View, ScrollView } from 'react-native';
 import StyledIcon from './StyledIcon';
-import StyledGradient from './StyledGradient';
+// import StyledGradient from './StyledGradient';
+import { ChevronRight } from 'lucide-react-native';
+import { themeColors } from '@lib/theme';
 
 export interface ListViewItem {
   label: string;
@@ -63,20 +65,23 @@ export default function ListView({
               <View className="flex-row items-center">
                 {item.rightText ? (
                   <Text
-                    className={`mr-2 font-poppins ${finalRightTextClassName} group-active:text-slate-300`}>
+                    className={`font-poppins mr-2 ${finalRightTextClassName} group-active:text-slate-300`}>
                     {item.rightText}
                   </Text>
                 ) : null}
                 {shouldShowEndIcon ? (
                   <View className="group-active:opacity-70">
-                    <StyledIcon
-                      name={item.endIconName ?? 'chevron-right'}
-                      type={item.endIconType ?? 'font-awesome'}
-                      size={12}
-                      colorName={
-                        item.isSelected ? 'green-400' : (item.endIconColorName ?? 'slate-200')
-                      }
-                    />
+                    {item.endIconName != null && (
+                      <StyledIcon
+                        Icon={ChevronRight}
+                        size={12}
+                        colorName={
+                          item.isSelected
+                            ? themeColors.success
+                            : (item.endIconColorName ?? themeColors.textMuted)
+                        }
+                      />
+                    )}
                   </View>
                 ) : null}
               </View>
@@ -92,12 +97,12 @@ export default function ListView({
         <ScrollView showsVerticalScrollIndicator={false} className="flex-1">
           {listContent}
         </ScrollView>
-        <StyledGradient
+        {/* <StyledGradient
           colorNames={['transparent', 'slate-900']}
           start={{ x: 0, y: 0 }}
           end={{ x: 0, y: 1 }}
           className="pointer-events-none absolute -bottom-4 left-0 right-0 h-14"
-        />
+        /> */}
       </View>
     );
   }

@@ -2,12 +2,23 @@ import React, { useState } from 'react';
 import { View, Text, ScrollView, Pressable, KeyboardAvoidingView, Platform } from 'react-native';
 import StyledIcon from '@components/ui/StyledIcon';
 import StyledCheckBox from '@components/ui/StyledCheckBox';
-import StyledGradient from '@components/ui/StyledGradient';
+// import StyledGradient from '@components/ui/StyledGradient';
 import Sheet from '@components/ui/Sheet';
 import ToggleSwitch from 'toggle-switch-react-native';
 import { HeaderIcon } from '@components/ui/HeaderIcon';
 import { useRouter } from 'expo-router';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import {
+  ChevronRight,
+  CircleIcon,
+  Clock,
+  FlagIcon,
+  GroupIcon,
+  HatGlasses,
+  SearchIcon,
+  Smartphone,
+} from 'lucide-react-native';
+import { themeColors } from '@lib/theme';
 
 const GAME_MODE_OPTIONS = [
   {
@@ -61,18 +72,16 @@ export default function OfflinePregame() {
             justifyContent: 'flex-start',
           }}>
           <View className="-mt-2">
-            <HeaderIcon title="Offline" iconName="mobile" iconColorName="orange-400" />
+            <HeaderIcon title="Offline" iconName={Smartphone} iconColorName={themeColors.accent} />
           </View>
 
           <View className="-mt-1 w-full">
-            <Text className="mb-2 text-center font-poppins font-bold text-gray-200">
-              Modo de juego
-            </Text>
+            <Text className="font-poppins mb-2 text-center  text-gray-200">Modo de juego</Text>
             <ScrollView
               horizontal
               showsHorizontalScrollIndicator={false}
               className="w-full"
-              contentContainerStyle={{ paddingRight: 8 }}>
+              contentContainerStyle={{ paddingRight: 12 }}>
               <View className="flex-row">
                 {GAME_MODE_OPTIONS.map((option, index) => (
                   <View
@@ -83,7 +92,7 @@ export default function OfflinePregame() {
                       imageSource={option.imageSource}
                       selected={selectedMode === option.value}
                       onPress={() => setSelectedMode(option.value)}
-                      className="mb-0 h-40 w-40"
+                      className="mb-0 w-44"
                     />
                   </View>
                 ))}
@@ -91,7 +100,7 @@ export default function OfflinePregame() {
             </ScrollView>
           </View>
 
-          <Text className="mb-2 mt-1 text-center font-poppins font-bold text-gray-200">
+          <Text className="font-poppins mb-2 mt-1 text-center  text-gray-200">
             Configuración del juego
           </Text>
 
@@ -102,9 +111,8 @@ export default function OfflinePregame() {
               <View className="flex flex-row items-center gap-2 ">
                 <View className="group-active:opacity-70">
                   <StyledIcon
-                    name="group"
-                    type="font-awesome"
-                    colorName="blue-500"
+                    Icon={GroupIcon}
+                    colorName={themeColors.primary}
                     size={24}></StyledIcon>
                 </View>
                 <Text className="font-poppins font-bold text-slate-100 group-active:text-slate-300">
@@ -112,16 +120,11 @@ export default function OfflinePregame() {
                 </Text>
               </View>
               <View className="flex-row items-center">
-                <Text className="mr-2 font-poppins text-slate-100 group-active:text-slate-300">
+                <Text className="font-poppins mr-2 text-slate-100 group-active:text-slate-300">
                   {players}
                 </Text>
                 <View className="group-active:opacity-70">
-                  <StyledIcon
-                    name="chevron-right"
-                    type="font-awesome"
-                    size={12}
-                    colorName="slate-200"
-                  />
+                  <StyledIcon Icon={ChevronRight} size={12} colorName={themeColors.border} />
                 </View>
               </View>
             </Pressable>
@@ -130,30 +133,21 @@ export default function OfflinePregame() {
 
             <View className="flex-row items-center justify-between py-2">
               <View className="flex-row items-center gap-1">
-                <StyledIcon
-                  name="user-secret"
-                  type="font-awesome"
-                  colorName="red-500"
-                  size={24}></StyledIcon>
+                <StyledIcon Icon={HatGlasses} colorName={themeColors.error} size={24}></StyledIcon>
                 <Text className="font-poppins font-bold text-slate-100">Impostores</Text>
                 <View className="ml-1">
-                  <StyledIcon
-                    name="info-circle"
-                    type="font-awesome"
-                    size={12}
-                    colorName="slate-300"
-                  />
+                  <StyledIcon Icon={CircleIcon} size={12} colorName={themeColors.border} />
                 </View>
               </View>
               <View className="flex-row items-center">
                 <Pressable
-                  className="h-7 w-7 items-center justify-center rounded-md bg-slate-700 active:bg-slate-600"
+                  className="h-7 w-7  shrink-0 items-center justify-center rounded-full  bg-slate-700 active:bg-slate-600"
                   onPress={decrementImpostors}>
                   <Text className="font-poppins text-white">-</Text>
                 </Pressable>
-                <Text className="mx-3 font-poppins text-slate-100">{impostors}</Text>
+                <Text className="font-poppins mx-3 text-slate-100">{impostors}</Text>
                 <Pressable
-                  className="h-7 w-7 items-center justify-center rounded-md bg-orange-500 active:bg-orange-400"
+                  className="h-7 w-7 shrink-0 items-center justify-center rounded-full bg-green-500/30 active:bg-green-400"
                   onPress={incrementImpostors}>
                   <Text className="font-poppins text-white">+</Text>
                 </Pressable>
@@ -164,11 +158,7 @@ export default function OfflinePregame() {
 
             <View className="flex-row items-center justify-between py-2">
               <View className="flex flex-row gap-2">
-                <StyledIcon
-                  name="search"
-                  type="font-awesome"
-                  colorName="orange-400"
-                  size={24}></StyledIcon>
+                <StyledIcon Icon={SearchIcon} colorName={themeColors.accent} size={24}></StyledIcon>
                 <Text className="font-poppins font-bold text-slate-100">Pista para impostores</Text>
               </View>
               <ToggleSwitch
@@ -187,9 +177,8 @@ export default function OfflinePregame() {
               <View className="flex flex-row items-center gap-2 ">
                 <View className="group-active:opacity-70">
                   <StyledIcon
-                    name="flag"
-                    type="font-awesome"
-                    colorName="gray-400"
+                    Icon={FlagIcon}
+                    colorName={themeColors.textMuted}
                     size={24}></StyledIcon>
                 </View>
                 <Text className="font-poppins font-bold text-slate-100 group-active:text-slate-300">
@@ -197,16 +186,11 @@ export default function OfflinePregame() {
                 </Text>
               </View>
               <View className="flex-row items-center">
-                <Text className="mr-2 font-poppins text-slate-100 group-active:text-slate-300">
+                <Text className="font-poppins mr-2 text-slate-100 group-active:text-slate-300">
                   {players} Rondas
                 </Text>
                 <View className="group-active:opacity-70">
-                  <StyledIcon
-                    name="chevron-right"
-                    type="font-awesome"
-                    size={12}
-                    colorName="slate-200"
-                  />
+                  <StyledIcon Icon={ChevronRight} size={12} colorName={themeColors.textMuted} />
                 </View>
               </View>
             </Pressable>
@@ -216,27 +200,18 @@ export default function OfflinePregame() {
               onPress={() => router.navigate('/offline/offline-time')}>
               <View className="flex flex-row items-center gap-2 ">
                 <View className="group-active:opacity-70">
-                  <StyledIcon
-                    name="history"
-                    type="font-awesome"
-                    colorName="gray-400"
-                    size={24}></StyledIcon>
+                  <StyledIcon Icon={Clock} colorName={themeColors.textMuted} size={24}></StyledIcon>
                 </View>
                 <Text className="font-poppins font-bold text-slate-100 group-active:text-slate-300">
                   Duración
                 </Text>
               </View>
               <View className="flex-row items-center">
-                <Text className="mr-2 font-poppins text-slate-100 group-active:text-slate-300">
+                <Text className="font-poppins mr-2 text-slate-100 group-active:text-slate-300">
                   {players} Minutos
                 </Text>
                 <View className="group-active:opacity-70">
-                  <StyledIcon
-                    name="chevron-right"
-                    type="font-awesome"
-                    size={12}
-                    colorName="slate-200"
-                  />
+                  <StyledIcon Icon={ChevronRight} size={12} colorName={themeColors.textMuted} />
                 </View>
               </View>
             </Pressable>
@@ -245,11 +220,11 @@ export default function OfflinePregame() {
 
         <Sheet>
           <Pressable className="w-full active:opacity-90">
-            <StyledGradient
+            {/* <StyledGradient
               colorNames={['green-500', 'emerald-600']}
               className="w-full items-center rounded-xl px-4 py-4">
               <Text className="font-poppins font-bold text-white">Iniciar juego</Text>
-            </StyledGradient>
+            </StyledGradient> */}
           </Pressable>
         </Sheet>
       </KeyboardAvoidingView>

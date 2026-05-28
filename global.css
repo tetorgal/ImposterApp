@@ -1,3 +1,44 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@import 'uniwind';
+
+@layer theme {
+  :root {
+    @theme {
+      /* Single font per variant - no fallbacks */
+      --font-sans: 'Poppins_400Regular';
+      --font-normal: 'Poppins_400Regular';
+      --font-medium: 'Poppins_400Regular';
+      --font-semibold: 'Poppins_700Bold';
+      --font-bold: 'Poppins_700Bold';
+      --font-mono: 'FiraCode-Regular';
+    }
+    /* Tailwind theme moved here: colors and text-shadow */
+    --color-neon-orange: #ffa500;
+    --text-shadow-default: 0 0 10px rgba(255, 165, 0, 0.75);
+    /* @variant light {
+      --color-primary: #00a8ff;
+      --color-gray: #f0f0f0;
+      --color-typography: #000;
+    }
+
+    @variant dark {
+      --color-primary: #273c75;
+      --color-gray: #353b48;
+      --color-typography: #fff;
+    } */
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: var(--text-shadow-default);
+  }
+
+  .text-neon-orange {
+    color: var(--color-neon-orange) !important;
+  }
+
+  .bg-neon-orange {
+    background-color: var(--color-neon-orange) !important;
+  }
+}

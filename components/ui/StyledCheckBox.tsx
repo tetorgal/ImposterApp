@@ -18,8 +18,8 @@ export default function StyledCheckBox({
 }: StyledCheckBoxProps) {
   return (
     <Pressable
-      className={`relative mb-3 overflow-hidden rounded-xl border-2 p-3 ${
-        selected ? 'border-orange-400 bg-slate-800/70' : 'border-slate-600 bg-slate-800/40'
+      className={`relative mb-3 aspect-square overflow-hidden rounded-xl border-2 p-3 ${
+        selected ? 'border-green-400 bg-green-800/70' : 'border-slate-600 bg-slate-800/40'
       } ${className}`}
       onPress={onPress}>
       <View className="absolute right-2 top-2">
@@ -27,12 +27,16 @@ export default function StyledCheckBox({
           name={selected ? 'dot-circle-o' : 'circle-thin'}
           type="font-awesome"
           size={20}
-          colorName={selected ? 'orange-400' : 'slate-300'}
+          colorName={selected ? 'green-400' : 'slate-300'}
         />
       </View>
 
-      <Image source={imageSource} className="h-24 w-full rounded-lg p-4" resizeMode="cover" />
-      <Text className="text-center font-poppins text-base  text-slate-100">{title}</Text>
+      <View className="flex-1 items-center justify-center overflow-hidden rounded-lg">
+        <Image source={imageSource} className="h-full w-full" resizeMode="contain" />
+      </View>
+      <Text className="font-poppins mt-2 text-center text-base text-slate-100" numberOfLines={1}>
+        {title}
+      </Text>
     </Pressable>
   );
 }

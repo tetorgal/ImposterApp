@@ -1,6 +1,6 @@
 import { HeaderIcon } from '@components/ui/HeaderIcon';
 import Sheet from '@components/ui/Sheet';
-import StyledGradient from '@components/ui/StyledGradient';
+// import StyledGradient from '@components/ui/StyledGradient';
 import StyledIcon from '@components/ui/StyledIcon';
 import StyledInput from '@components/ui/StyledInput';
 import { PlayerPill } from '@components/ui/PlayerPill';
@@ -20,8 +20,10 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { GroupIcon, Pencil, PencilIcon, PlusIcon } from 'lucide-react-native';
+import { themeColors } from '@lib/theme';
 
-type AvatarVariant = 'red' | 'yellow' | 'blue' | 'green';
+type AvatarVariant = 'danger' | 'warning' | 'primary' | 'success';
 
 type PlayerForm = {
   playerName: string;
@@ -33,7 +35,7 @@ type PlayerDoc = {
   variant: AvatarVariant;
 };
 
-const avatarVariants: AvatarVariant[] = ['red', 'yellow', 'blue', 'green'];
+const avatarVariants: AvatarVariant[] = ['danger', 'warning', 'primary', 'success'];
 
 const getNextVariant = (players: PlayerDoc[]) => {
   let selectedVariant = avatarVariants[0];
@@ -161,16 +163,16 @@ export default function OfflinePlayers() {
             }}>
             <HeaderIcon
               title="Jugadores"
-              iconName="group"
-              iconColorName="gray-200"
+              iconName={GroupIcon}
+              iconColorName={themeColors.gray}
               subtitle="3-24 jugadores"
             />
-            <Text className="my-4 text-center font-poppins text-green-400">
+            <Text className="font-poppins my-4 text-center text-green-400">
               {playerDB.length} jugadores
             </Text>
 
             {feedbackMessage ? (
-              <Text className="mb-3 text-center font-poppins text-sm text-slate-300">
+              <Text className="font-poppins mb-3 text-center text-sm text-slate-300">
                 {feedbackMessage}
               </Text>
             ) : null}
@@ -181,7 +183,7 @@ export default function OfflinePlayers() {
                   key={player._id}
                   name={player.playerName}
                   initial={player.playerName[0]}
-                  iconName="pencil"
+                  iconName={Pencil}
                   iconColor="green-400"
                   variant={player.variant}
                   onDelete={() => handleDelete(player._id)}
@@ -210,24 +212,23 @@ export default function OfflinePlayers() {
                 )}
               />
               <Pressable onPress={handleSubmit(onSubmit)} className="shrink-0">
-                <StyledGradient
+                {/* <StyledGradient
                   colorNames={['green-400', 'emerald-500']}
                   className="h-12 w-12 items-center justify-center rounded-full active:opacity-75">
                   <StyledIcon
-                    name={editingId ? 'check' : 'plus'}
-                    type="font-awesome"
-                    colorName="slate-900"
+                    Icon={editingId ? PencilIcon : PlusIcon}
+                    colorName={themeColors.background}
                   />
-                </StyledGradient>
+                </StyledGradient> */}
               </Pressable>
             </View>
 
             <Pressable className="mt-2 w-full active:opacity-90">
-              <StyledGradient
+              {/* <StyledGradient
                 colorNames={['slate-700', 'gray-800']}
                 className="w-full items-center rounded-xl px-4 py-4">
                 <Text className="font-poppins font-bold text-white">Cancelar</Text>
-              </StyledGradient>
+              </StyledGradient> */}
             </Pressable>
           </Sheet>
         </View>

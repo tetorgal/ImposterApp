@@ -2,12 +2,14 @@ import { Stack } from 'expo-router';
 import '../global.css';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'react-native';
+import { HeroUINativeProvider } from 'heroui-native';
 
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts, Poppins_400Regular, Poppins_700Bold } from '@expo-google-fonts/poppins';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import TopNavBar from '@components/ui/TopNavBar';
 import { ConvexProvider, ConvexReactClient } from 'convex/react';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
@@ -33,42 +35,46 @@ export default function RootLayout() {
     return null;
   }
   return (
-    <ConvexProvider client={convex}>
-      <SafeAreaProvider>
-        <Stack
-          screenOptions={{
-            headerStyle: { backgroundColor: '#0f172a' },
-            headerTintColor: '#c4c4c4',
-            headerTitle: '',
-            headerShadowVisible: false,
-          }}>
-          <Stack.Screen
-            name="index"
-            options={{ title: 'Home', headerShown: true, header: createHeader('home') }}
-          />
-          <Stack.Screen
-            name="about"
-            options={{ title: 'About', headerShown: true, header: createHeader('back') }}
-          />
-          <Stack.Screen
-            name="offline/offline-pregame"
-            options={{ title: 'Offline', headerShown: true, header: createHeader('home') }}
-          />
-          <Stack.Screen
-            name="offline/offline-players"
-            options={{ title: 'Players', headerShown: true, header: createHeader('back') }}
-          />
-          <Stack.Screen
-            name="offline/offline-rounds"
-            options={{ title: 'Rounds', headerShown: true, header: createHeader('back') }}
-          />
-          <Stack.Screen
-            name="offline/offline-time"
-            options={{ title: 'Time', headerShown: true, header: createHeader('back') }}
-          />
-        </Stack>
-        <StatusBar barStyle="light-content" />
-      </SafeAreaProvider>
-    </ConvexProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <HeroUINativeProvider>
+        <ConvexProvider client={convex}>
+          <SafeAreaProvider>
+            <Stack
+              screenOptions={{
+                headerStyle: { backgroundColor: '#0f172a' },
+                headerTintColor: '#c4c4c4',
+                headerTitle: '',
+                headerShadowVisible: false,
+              }}>
+              <Stack.Screen
+                name="index"
+                options={{ title: 'Home', headerShown: true, header: createHeader('home') }}
+              />
+              <Stack.Screen
+                name="about"
+                options={{ title: 'About', headerShown: true, header: createHeader('back') }}
+              />
+              <Stack.Screen
+                name="offline/offline-pregame"
+                options={{ title: 'Offline', headerShown: true, header: createHeader('home') }}
+              />
+              <Stack.Screen
+                name="offline/offline-players"
+                options={{ title: 'Players', headerShown: true, header: createHeader('back') }}
+              />
+              <Stack.Screen
+                name="offline/offline-rounds"
+                options={{ title: 'Rounds', headerShown: true, header: createHeader('back') }}
+              />
+              <Stack.Screen
+                name="offline/offline-time"
+                options={{ title: 'Time', headerShown: true, header: createHeader('back') }}
+              />
+            </Stack>
+            <StatusBar barStyle="light-content" />
+          </SafeAreaProvider>
+        </ConvexProvider>
+      </HeroUINativeProvider>
+    </GestureHandlerRootView>
   );
 }

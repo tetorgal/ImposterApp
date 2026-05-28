@@ -1,0 +1,2588 @@
+{
+  "categories": [
+    {
+      "id": "animales_naturaleza",
+      "name": "Animales y Naturaleza",
+      "words": [
+        {
+          "word": "León",
+          "hint": "Sabana"
+        },
+        {
+          "word": "Tigre",
+          "hint": "Bengala"
+        },
+        {
+          "word": "Elefante",
+          "hint": "Marfil"
+        },
+        {
+          "word": "Jirafa",
+          "hint": "Acacia"
+        },
+        {
+          "word": "Perro",
+          "hint": "Correa"
+        },
+        {
+          "word": "Gato",
+          "hint": "Estambre"
+        },
+        {
+          "word": "Delfín",
+          "hint": "Aleta"
+        },
+        {
+          "word": "Ballena",
+          "hint": "Plancton"
+        },
+        {
+          "word": "Tiburón",
+          "hint": "Arrecife"
+        },
+        {
+          "word": "Águila",
+          "hint": "Nido"
+        },
+        {
+          "word": "Pingüino",
+          "hint": "Iceberg"
+        },
+        {
+          "word": "Oso",
+          "hint": "Cueva"
+        },
+        {
+          "word": "Lobo",
+          "hint": "Aullido"
+        },
+        {
+          "word": "Zorro",
+          "hint": "Madriguera"
+        },
+        {
+          "word": "Caballo",
+          "hint": "Herradura"
+        },
+        {
+          "word": "Vaca",
+          "hint": "Granja"
+        },
+        {
+          "word": "Cerdo",
+          "hint": "Lodo"
+        },
+        {
+          "word": "Oveja",
+          "hint": "Lana"
+        },
+        {
+          "word": "Serpiente",
+          "hint": "Cascabel"
+        },
+        {
+          "word": "Cocodrilo",
+          "hint": "Pantano"
+        },
+        {
+          "word": "Rana",
+          "hint": "Estanque"
+        },
+        {
+          "word": "Mariposa",
+          "hint": "Oruga"
+        },
+        {
+          "word": "Abeja",
+          "hint": "Panal"
+        },
+        {
+          "word": "Araña",
+          "hint": "Seda"
+        },
+        {
+          "word": "Árbol",
+          "hint": "Raíz"
+        },
+        {
+          "word": "Flor",
+          "hint": "Polen"
+        },
+        {
+          "word": "Montaña",
+          "hint": "Cumbre"
+        },
+        {
+          "word": "Río",
+          "hint": "Corriente"
+        },
+        {
+          "word": "Desierto",
+          "hint": "Oasis"
+        }
+      ]
+    },
+    {
+      "id": "comida_bebida",
+      "name": "Comida y Bebida",
+      "words": [
+        {
+          "word": "Pizza",
+          "hint": "Orégano"
+        },
+        {
+          "word": "Hamburguesa",
+          "hint": "Parrilla"
+        },
+        {
+          "word": "Sushi",
+          "hint": "Alga"
+        },
+        {
+          "word": "Tacos",
+          "hint": "Trompo"
+        },
+        {
+          "word": "Ensalada",
+          "hint": "Aderezo"
+        },
+        {
+          "word": "Sopa",
+          "hint": "Caldo"
+        },
+        {
+          "word": "Pasta",
+          "hint": "Hervir"
+        },
+        {
+          "word": "Helado",
+          "hint": "Cono"
+        },
+        {
+          "word": "Chocolate",
+          "hint": "Cacao"
+        },
+        {
+          "word": "Pastel",
+          "hint": "Velas"
+        },
+        {
+          "word": "Galletas",
+          "hint": "Chispas"
+        },
+        {
+          "word": "Pan",
+          "hint": "Levadura"
+        },
+        {
+          "word": "Queso",
+          "hint": "Rallador"
+        },
+        {
+          "word": "Huevo",
+          "hint": "Yema"
+        },
+        {
+          "word": "Manzana",
+          "hint": "Sidra"
+        },
+        {
+          "word": "Plátano",
+          "hint": "Potasio"
+        },
+        {
+          "word": "Naranja",
+          "hint": "Cítrico"
+        },
+        {
+          "word": "Fresa",
+          "hint": "Mermelada"
+        },
+        {
+          "word": "Uva",
+          "hint": "Viñedo"
+        },
+        {
+          "word": "Tomate",
+          "hint": "Kétchup"
+        },
+        {
+          "word": "Zanahoria",
+          "hint": "Huerto"
+        },
+        {
+          "word": "Papa",
+          "hint": "Fritura"
+        },
+        {
+          "word": "Arroz",
+          "hint": "Vapor"
+        },
+        {
+          "word": "Frijoles",
+          "hint": "Olla"
+        },
+        {
+          "word": "Café",
+          "hint": "Trenta"
+        },
+        {
+          "word": "Té",
+          "hint": "Infusión"
+        },
+        {
+          "word": "Leche",
+          "hint": "Cereal"
+        },
+        {
+          "word": "Cerveza",
+          "hint": "Cebada"
+        },
+        {
+          "word": "Vino",
+          "hint": "Corcho"
+        },
+        {
+          "word": "Agua",
+          "hint": "Manantial"
+        }
+      ]
+    },
+    {
+      "id": "vida_cotidiana",
+      "name": "Vida cotidiana",
+      "words": [
+        {
+          "word": "Cama",
+          "hint": "Almohada"
+        },
+        {
+          "word": "Sofá",
+          "hint": "Cojín"
+        },
+        {
+          "word": "Silla",
+          "hint": "Respaldo"
+        },
+        {
+          "word": "Mesa",
+          "hint": "Mantel"
+        },
+        {
+          "word": "Televisión",
+          "hint": "Antena"
+        },
+        {
+          "word": "Refrigerador",
+          "hint": "Congelador"
+        },
+        {
+          "word": "Lavadora",
+          "hint": "Centrifugado"
+        },
+        {
+          "word": "Microondas",
+          "hint": "Radiación"
+        },
+        {
+          "word": "Espejo",
+          "hint": "Reflejo"
+        },
+        {
+          "word": "Reloj",
+          "hint": "Agujas"
+        },
+        {
+          "word": "Llaves",
+          "hint": "Cerradura"
+        },
+        {
+          "word": "Teléfono",
+          "hint": "Llamada"
+        },
+        {
+          "word": "Billetera",
+          "hint": "Cuero"
+        },
+        {
+          "word": "Paraguas",
+          "hint": "Lluvia"
+        },
+        {
+          "word": "Cepillo",
+          "hint": "Cerdas"
+        },
+        {
+          "word": "Jabón",
+          "hint": "Espuma"
+        },
+        {
+          "word": "Toalla",
+          "hint": "Algodón"
+        },
+        {
+          "word": "Papel higiénico",
+          "hint": "Rollo"
+        },
+        {
+          "word": "Escoba",
+          "hint": "Polvo"
+        },
+        {
+          "word": "Basura",
+          "hint": "Bolsa"
+        },
+        {
+          "word": "Puerta",
+          "hint": "Pomo"
+        },
+        {
+          "word": "Ventana",
+          "hint": "Cristal"
+        },
+        {
+          "word": "Escaleras",
+          "hint": "Peldaño"
+        },
+        {
+          "word": "Calle",
+          "hint": "Asfalto"
+        },
+        {
+          "word": "Semáforo",
+          "hint": "Luz"
+        },
+        {
+          "word": "Tráfico",
+          "hint": "Claxon"
+        },
+        {
+          "word": "Supermercado",
+          "hint": "Carrito"
+        },
+        {
+          "word": "Gimnasio",
+          "hint": "Mancuerna"
+        }
+      ]
+    },
+    {
+      "id": "anime",
+      "name": "Anime",
+      "words": [
+        {
+          "word": "Naruto",
+          "hint": "Zorro"
+        },
+        {
+          "word": "Goku",
+          "hint": "Nube"
+        },
+        {
+          "word": "Luffy",
+          "hint": "Goma"
+        },
+        {
+          "word": "Saitama",
+          "hint": "Calvo"
+        },
+        {
+          "word": "Pikachu",
+          "hint": "Rayo"
+        },
+        {
+          "word": "Sailor Moon",
+          "hint": "Luna"
+        },
+        {
+          "word": "Totoro",
+          "hint": "Bosque"
+        },
+        {
+          "word": "Evangelion",
+          "hint": "Ángel"
+        },
+        {
+          "word": "Titán",
+          "hint": "Muro"
+        },
+        {
+          "word": "Death Note",
+          "hint": "Libreta"
+        },
+        {
+          "word": "Sharingan",
+          "hint": "Ojo"
+        },
+        {
+          "word": "Super Saiyan",
+          "hint": "Dorado"
+        },
+        {
+          "word": "Ninja",
+          "hint": "Oculto"
+        },
+        {
+          "word": "Samurai",
+          "hint": "Honor"
+        },
+        {
+          "word": "Mecha",
+          "hint": "Piloto"
+        },
+        {
+          "word": "Otaku",
+          "hint": "Colección"
+        },
+        {
+          "word": "Manga",
+          "hint": "Viñeta"
+        },
+        {
+          "word": "Cosplay",
+          "hint": "Disfraz"
+        },
+        {
+          "word": "Shuriken",
+          "hint": "Estrella"
+        },
+        {
+          "word": "Katana",
+          "hint": "Filo"
+        },
+        {
+          "word": "Chakra",
+          "hint": "Flujo"
+        },
+        {
+          "word": "Jutsu",
+          "hint": "Sello"
+        },
+        {
+          "word": "Ramen",
+          "hint": "Fideos"
+        },
+        {
+          "word": "Uniforme",
+          "hint": "Marinero"
+        },
+        {
+          "word": "Festival",
+          "hint": "Fuegos"
+        },
+        {
+          "word": "Aguas termales",
+          "hint": "Vapor"
+        }
+      ]
+    },
+    {
+      "id": "cine_television",
+      "name": "Cine y televisión",
+      "words": [
+        {
+          "word": "Película",
+          "hint": "Claquet"
+        },
+        {
+          "word": "Serie",
+          "hint": "Streaming"
+        },
+        {
+          "word": "Actor",
+          "hint": "Personaje"
+        },
+        {
+          "word": "Actriz",
+          "hint": "Maquillaje"
+        },
+        {
+          "word": "Director",
+          "hint": "Silla"
+        },
+        {
+          "word": "Guion",
+          "hint": "Diálogo"
+        },
+        {
+          "word": "Cámara",
+          "hint": "Lente"
+        },
+        {
+          "word": "Escena",
+          "hint": "Toma"
+        },
+        {
+          "word": "Corte",
+          "hint": "Edición"
+        },
+        {
+          "word": "Acción",
+          "hint": "Grito"
+        },
+        {
+          "word": "Drama",
+          "hint": "Lágrimas"
+        },
+        {
+          "word": "Comedia",
+          "hint": "Risas"
+        },
+        {
+          "word": "Terror",
+          "hint": "Susto"
+        },
+        {
+          "word": "Ciencia ficción",
+          "hint": "Futuro"
+        },
+        {
+          "word": "Documental",
+          "hint": "Realidad"
+        },
+        {
+          "word": "Palomitas",
+          "hint": "Combo"
+        },
+        {
+          "word": "Cine",
+          "hint": "Butaca"
+        },
+        {
+          "word": "Taquilla",
+          "hint": "Boletos"
+        },
+        {
+          "word": "Oscar",
+          "hint": "Estatuilla"
+        },
+        {
+          "word": "Emmy",
+          "hint": "Galardón"
+        },
+        {
+          "word": "Control remoto",
+          "hint": "Botones"
+        },
+        {
+          "word": "Pantalla",
+          "hint": "Proyector"
+        },
+        {
+          "word": "Temporada",
+          "hint": "Renovación"
+        },
+        {
+          "word": "Episodio",
+          "hint": "Capítulo"
+        },
+        {
+          "word": "Spoiler",
+          "hint": "Sorpresa"
+        },
+        {
+          "word": "Subtítulos",
+          "hint": "Traducción"
+        },
+        {
+          "word": "Doblaje",
+          "hint": "Voz"
+        },
+        {
+          "word": "Animación",
+          "hint": "Cuadros"
+        },
+        {
+          "word": "Efectos especiales",
+          "hint": "CGI"
+        },
+        {
+          "word": "Banda sonora",
+          "hint": "Música"
+        }
+      ]
+    },
+    {
+      "id": "cuerpo_salud",
+      "name": "Cuerpo y Salud",
+      "words": [
+        {
+          "word": "Cabeza",
+          "hint": "Cráneo"
+        },
+        {
+          "word": "Pelo",
+          "hint": "Cepillo"
+        },
+        {
+          "word": "Ojo",
+          "hint": "Pupila"
+        },
+        {
+          "word": "Oreja",
+          "hint": "Tímpano"
+        },
+        {
+          "word": "Nariz",
+          "hint": "Olfato"
+        },
+        {
+          "word": "Boca",
+          "hint": "Labios"
+        },
+        {
+          "word": "Diente",
+          "hint": "Esmalte"
+        },
+        {
+          "word": "Cuello",
+          "hint": "Garganta"
+        },
+        {
+          "word": "Hombro",
+          "hint": "Clavícula"
+        },
+        {
+          "word": "Brazo",
+          "hint": "Codo"
+        },
+        {
+          "word": "Mano",
+          "hint": "Palma"
+        },
+        {
+          "word": "Dedo",
+          "hint": "Huella"
+        },
+        {
+          "word": "Pecho",
+          "hint": "Costillas"
+        },
+        {
+          "word": "Espalda",
+          "hint": "Columna"
+        },
+        {
+          "word": "Estómago",
+          "hint": "Digestión"
+        },
+        {
+          "word": "Pierna",
+          "hint": "Muslo"
+        },
+        {
+          "word": "Rodilla",
+          "hint": "Rótula"
+        },
+        {
+          "word": "Pie",
+          "hint": "Talón"
+        },
+        {
+          "word": "Sangre",
+          "hint": "Venas"
+        },
+        {
+          "word": "Hueso",
+          "hint": "Calcio"
+        },
+        {
+          "word": "Músculo",
+          "hint": "Fibra"
+        },
+        {
+          "word": "Corazón",
+          "hint": "Latido"
+        },
+        {
+          "word": "Cerebro",
+          "hint": "Neurona"
+        },
+        {
+          "word": "Pulmón",
+          "hint": "Respiración"
+        },
+        {
+          "word": "Médico",
+          "hint": "Receta"
+        },
+        {
+          "word": "Enfermera",
+          "hint": "Clínica"
+        },
+        {
+          "word": "Hospital",
+          "hint": "Camilla"
+        },
+        {
+          "word": "Medicina",
+          "hint": "Pastilla"
+        },
+        {
+          "word": "Vacuna",
+          "hint": "Inyección"
+        },
+        {
+          "word": "Fiebre",
+          "hint": "Termómetro"
+        }
+      ]
+    },
+    {
+      "id": "deportes",
+      "name": "Deportes",
+      "words": [
+        {
+          "word": "Atletismo",
+          "hint": "Pista"
+        },
+        {
+          "word": "Natación",
+          "hint": "Carril"
+        },
+        {
+          "word": "Gimnasia",
+          "hint": "Rutina"
+        },
+        {
+          "word": "Tenis",
+          "hint": "Saque"
+        },
+        {
+          "word": "Baloncesto",
+          "hint": "Canasta"
+        },
+        {
+          "word": "Voleibol",
+          "hint": "Bloqueo"
+        },
+        {
+          "word": "Béisbol",
+          "hint": "Bate"
+        },
+        {
+          "word": "Golf",
+          "hint": "Hoyo"
+        },
+        {
+          "word": "Ciclismo",
+          "hint": "Pedal"
+        },
+        {
+          "word": "Boxeo",
+          "hint": "Ring"
+        },
+        {
+          "word": "Lucha libre",
+          "hint": "Máscara"
+        },
+        {
+          "word": "Judo",
+          "hint": "Tatami"
+        },
+        {
+          "word": "Karate",
+          "hint": "Cinta"
+        },
+        {
+          "word": "Esgrima",
+          "hint": "Florete"
+        },
+        {
+          "word": "Halterofilia",
+          "hint": "Discos"
+        },
+        {
+          "word": "Maratón",
+          "hint": "Kilómetros"
+        },
+        {
+          "word": "Triatlón",
+          "hint": "Transición"
+        },
+        {
+          "word": "Raqueta",
+          "hint": "Cuerdas"
+        },
+        {
+          "word": "Pelota",
+          "hint": "Bote"
+        },
+        {
+          "word": "Red",
+          "hint": "Malla"
+        },
+        {
+          "word": "Cancha",
+          "hint": "Líneas"
+        },
+        {
+          "word": "Estadio",
+          "hint": "Gradas"
+        },
+        {
+          "word": "Medalla",
+          "hint": "Podio"
+        },
+        {
+          "word": "Árbitro",
+          "hint": "Silbato"
+        },
+        {
+          "word": "Entrenador",
+          "hint": "Táctica"
+        },
+        {
+          "word": "Equipo",
+          "hint": "Plantilla"
+        },
+        {
+          "word": "Marcador",
+          "hint": "Puntos"
+        },
+        {
+          "word": "Falta",
+          "hint": "Infracción"
+        },
+        {
+          "word": "Empate",
+          "hint": "Igualdad"
+        },
+        {
+          "word": "Victoria",
+          "hint": "Triunfo"
+        }
+      ]
+    },
+    {
+      "id": "escuela",
+      "name": "Escuela",
+      "words": [
+        {
+          "word": "Profesor",
+          "hint": "Clase"
+        },
+        {
+          "word": "Alumno",
+          "hint": "Aprender"
+        },
+        {
+          "word": "Aula",
+          "hint": "Bancos"
+        },
+        {
+          "word": "Pizarra",
+          "hint": "Gis"
+        },
+        {
+          "word": "Tiza",
+          "hint": "Polvo"
+        },
+        {
+          "word": "Marcador",
+          "hint": "Tinta"
+        },
+        {
+          "word": "Borrador",
+          "hint": "Limpiar"
+        },
+        {
+          "word": "Pupitre",
+          "hint": "Asiento"
+        },
+        {
+          "word": "Cuaderno",
+          "hint": "Hojas"
+        },
+        {
+          "word": "Lápiz",
+          "hint": "Grafito"
+        },
+        {
+          "word": "Bolígrafo",
+          "hint": "Trazo"
+        },
+        {
+          "word": "Goma",
+          "hint": "Corregir"
+        },
+        {
+          "word": "Regla",
+          "hint": "Medir"
+        },
+        {
+          "word": "Mochila",
+          "hint": "Cargar"
+        },
+        {
+          "word": "Libro",
+          "hint": "Texto"
+        },
+        {
+          "word": "Diccionario",
+          "hint": "Definición"
+        },
+        {
+          "word": "Examen",
+          "hint": "Prueba"
+        },
+        {
+          "word": "Tarea",
+          "hint": "Casa"
+        },
+        {
+          "word": "Recreo",
+          "hint": "Descanso"
+        },
+        {
+          "word": "Biblioteca",
+          "hint": "Silencio"
+        },
+        {
+          "word": "Laboratorio",
+          "hint": "Experimento"
+        },
+        {
+          "word": "Gimnasio",
+          "hint": "Deporte"
+        },
+        {
+          "word": "Cafetería",
+          "hint": "Lonche"
+        },
+        {
+          "word": "Director",
+          "hint": "Oficina"
+        },
+        {
+          "word": "Uniforme",
+          "hint": "Vestimenta"
+        },
+        {
+          "word": "Diploma",
+          "hint": "Papel"
+        },
+        {
+          "word": "Graduación",
+          "hint": "Birrete"
+        },
+        {
+          "word": "Matemáticas",
+          "hint": "Números"
+        },
+        {
+          "word": "Historia",
+          "hint": "Pasado"
+        },
+        {
+          "word": "Ciencias",
+          "hint": "Biología"
+        }
+      ]
+    },
+    {
+      "id": "fantasia",
+      "name": "Fantasía",
+      "words": [
+        {
+          "word": "Dragón",
+          "hint": "Fuego"
+        },
+        {
+          "word": "Unicornio",
+          "hint": "Cuerno"
+        },
+        {
+          "word": "Hada",
+          "hint": "Polvo"
+        },
+        {
+          "word": "Duende",
+          "hint": "Oro"
+        },
+        {
+          "word": "Elfo",
+          "hint": "Orejas"
+        },
+        {
+          "word": "Enano",
+          "hint": "Mina"
+        },
+        {
+          "word": "Orco",
+          "hint": "Verde"
+        },
+        {
+          "word": "Troll",
+          "hint": "Puente"
+        },
+        {
+          "word": "Sirena",
+          "hint": "Canto"
+        },
+        {
+          "word": "Centauro",
+          "hint": "Pezuña"
+        },
+        {
+          "word": "Mago",
+          "hint": "Sombrero"
+        },
+        {
+          "word": "Bruja",
+          "hint": "Escoba"
+        },
+        {
+          "word": "Hechizo",
+          "hint": "Conjuro"
+        },
+        {
+          "word": "Varita",
+          "hint": "Madera"
+        },
+        {
+          "word": "Poción",
+          "hint": "Frasco"
+        },
+        {
+          "word": "Castillo",
+          "hint": "Foso"
+        },
+        {
+          "word": "Rey",
+          "hint": "Corona"
+        },
+        {
+          "word": "Reina",
+          "hint": "Trono"
+        },
+        {
+          "word": "Caballero",
+          "hint": "Cruzada"
+        },
+        {
+          "word": "Espada",
+          "hint": "Acero"
+        },
+        {
+          "word": "Escudo",
+          "hint": "Defensa"
+        },
+        {
+          "word": "Armadura",
+          "hint": "Metal"
+        },
+        {
+          "word": "Monstruo",
+          "hint": "Bestia"
+        },
+        {
+          "word": "Fantasma",
+          "hint": "Sábana"
+        },
+        {
+          "word": "Vampiro",
+          "hint": "Colmillos"
+        },
+        {
+          "word": "Hombre lobo",
+          "hint": "Luna"
+        },
+        {
+          "word": "Zombie",
+          "hint": "Infección"
+        },
+        {
+          "word": "Alien",
+          "hint": "Espacio"
+        }
+      ]
+    },
+    {
+      "id": "futbol",
+      "name": "Fútbol",
+      "words": [
+        {
+          "word": "Balón",
+          "hint": "Cuero"
+        },
+        {
+          "word": "Portería",
+          "hint": "Postes"
+        },
+        {
+          "word": "Campo",
+          "hint": "Terreno"
+        },
+        {
+          "word": "Césped",
+          "hint": "Verde"
+        },
+        {
+          "word": "Portero",
+          "hint": "Atajar"
+        },
+        {
+          "word": "Árbitro",
+          "hint": "Tarjetas"
+        },
+        {
+          "word": "Falta",
+          "hint": "Tiro libre"
+        },
+        {
+          "word": "Penalti",
+          "hint": "Manchón"
+        },
+        {
+          "word": "Gol",
+          "hint": "Red"
+        },
+        {
+          "word": "Entrenador",
+          "hint": "Banquillo"
+        },
+        {
+          "word": "Estadio",
+          "hint": "Tribuna"
+        },
+        {
+          "word": "Mundial",
+          "hint": "Trofeo"
+        },
+        {
+          "word": "Champions",
+          "hint": "Orejona"
+        },
+        {
+          "word": "Guantes",
+          "hint": "Manos"
+        }
+      ]
+    },
+    {
+      "id": "gente_famosa",
+      "name": "Gente Famosa",
+      "words": [
+        {
+          "word": "Einstein",
+          "hint": "Relatividad"
+        },
+        {
+          "word": "Newton",
+          "hint": "Gravedad"
+        },
+        {
+          "word": "Shakespeare",
+          "hint": "Teatro"
+        },
+        {
+          "word": "Da Vinci",
+          "hint": "Renacimiento"
+        },
+        {
+          "word": "Picasso",
+          "hint": "Cubismo"
+        },
+        {
+          "word": "Mozart",
+          "hint": "Sinfonía"
+        },
+        {
+          "word": "Beethoven",
+          "hint": "Sordera"
+        },
+        {
+          "word": "Elvis",
+          "hint": "Rey"
+        },
+        {
+          "word": "Beatles",
+          "hint": "Submarino"
+        },
+        {
+          "word": "Michael Jackson",
+          "hint": "Moonwalk"
+        },
+        {
+          "word": "Madonna",
+          "hint": "Pop"
+        },
+        {
+          "word": "Marilyn Monroe",
+          "hint": "Rubia"
+        },
+        {
+          "word": "Chaplin",
+          "hint": "Mudo"
+        },
+        {
+          "word": "Walt Disney",
+          "hint": "Ratón"
+        },
+        {
+          "word": "Steve Jobs",
+          "hint": "Manzana"
+        },
+        {
+          "word": "Bill Gates",
+          "hint": "Ventanas"
+        },
+        {
+          "word": "Elon Musk",
+          "hint": "Marte"
+        },
+        {
+          "word": "Cleopatra",
+          "hint": "Egipto"
+        },
+        {
+          "word": "Julio César",
+          "hint": "Roma"
+        },
+        {
+          "word": "Napoleón",
+          "hint": "Francia"
+        },
+        {
+          "word": "Gandhi",
+          "hint": "Paz"
+        },
+        {
+          "word": "Mandela",
+          "hint": "Prisión"
+        },
+        {
+          "word": "Luther King",
+          "hint": "Sueño"
+        },
+        {
+          "word": "Teresa de Calcuta",
+          "hint": "Caridad"
+        },
+        {
+          "word": "Neil Armstrong",
+          "hint": "Luna"
+        },
+        {
+          "word": "Pelé",
+          "hint": "Brasil"
+        },
+        {
+          "word": "Maradona",
+          "hint": "Diez"
+        },
+        {
+          "word": "Messi",
+          "hint": "Pulga"
+        },
+        {
+          "word": "Cristiano Ronaldo",
+          "hint": "Bicho"
+        },
+        {
+          "word": "Muhammad Ali",
+          "hint": "Cuadrilátero"
+        }
+      ]
+    },
+    {
+      "id": "juegos",
+      "name": "Juegos",
+      "words": [
+        {
+          "word": "Dados",
+          "hint": "Azar"
+        },
+        {
+          "word": "Cartas",
+          "hint": "Baraja"
+        },
+        {
+          "word": "Fichas",
+          "hint": "Apostar"
+        },
+        {
+          "word": "Tablero",
+          "hint": "Casillas"
+        },
+        {
+          "word": "Ajedrez",
+          "hint": "Jaque"
+        },
+        {
+          "word": "Dominó",
+          "hint": "Puntos"
+        },
+        {
+          "word": "Bingo",
+          "hint": "Gritar"
+        },
+        {
+          "word": "Ruleta",
+          "hint": "Girar"
+        },
+        {
+          "word": "Poker",
+          "hint": "Farol"
+        },
+        {
+          "word": "Blackjack",
+          "hint": "Veintiuno"
+        },
+        {
+          "word": "Solitario",
+          "hint": "Individual"
+        },
+        {
+          "word": "Rompecabezas",
+          "hint": "Piezas"
+        },
+        {
+          "word": "Tetris",
+          "hint": "Líneas"
+        },
+        {
+          "word": "Pac-Man",
+          "hint": "Fantasmas"
+        },
+        {
+          "word": "Mario",
+          "hint": "Fontanero"
+        },
+        {
+          "word": "Sonic",
+          "hint": "Erizo"
+        },
+        {
+          "word": "Zelda",
+          "hint": "Princesa"
+        },
+        {
+          "word": "Minecraft",
+          "hint": "Bloques"
+        },
+        {
+          "word": "Assassin's Creed",
+          "hint": "Credo"
+        },
+        {
+          "word": "Fortnite",
+          "hint": "Batalla"
+        },
+        {
+          "word": "Roblox",
+          "hint": "Avatar"
+        },
+        {
+          "word": "Consola",
+          "hint": "Sistema"
+        },
+        {
+          "word": "Mando",
+          "hint": "Botones"
+        },
+        {
+          "word": "Pantalla",
+          "hint": "Visual"
+        },
+        {
+          "word": "Nivel",
+          "hint": "Fase"
+        },
+        {
+          "word": "Vida",
+          "hint": "Corazón"
+        },
+        {
+          "word": "Game Over",
+          "hint": "Fin"
+        }
+      ]
+    },
+    {
+      "id": "marcas",
+      "name": "Marcas",
+      "words": [
+        {
+          "word": "Apple",
+          "hint": "Cupertino"
+        },
+        {
+          "word": "Microsoft",
+          "hint": "Ventana"
+        },
+        {
+          "word": "Google",
+          "hint": "Buscador"
+        },
+        {
+          "word": "Amazon",
+          "hint": "Paquetes"
+        },
+        {
+          "word": "Facebook",
+          "hint": "Muro"
+        },
+        {
+          "word": "Coca-Cola",
+          "hint": "Roja"
+        },
+        {
+          "word": "Pepsi",
+          "hint": "Azul"
+        },
+        {
+          "word": "McDonald's",
+          "hint": "Arcos"
+        },
+        {
+          "word": "Burger King",
+          "hint": "Corona"
+        },
+        {
+          "word": "KFC",
+          "hint": "Coronel"
+        },
+        {
+          "word": "Starbucks",
+          "hint": "Sirena"
+        },
+        {
+          "word": "Subway",
+          "hint": "Metro"
+        },
+        {
+          "word": "Domino's",
+          "hint": "Ficha"
+        },
+        {
+          "word": "Nike",
+          "hint": "Palomita"
+        },
+        {
+          "word": "Adidas",
+          "hint": "Franjas"
+        },
+        {
+          "word": "Puma",
+          "hint": "Felino"
+        },
+        {
+          "word": "Rolex",
+          "hint": "Muñeca"
+        },
+        {
+          "word": "Gucci",
+          "hint": "Lujo"
+        },
+        {
+          "word": "Louis Vuitton",
+          "hint": "Maletas"
+        },
+        {
+          "word": "Zara",
+          "hint": "Española"
+        },
+        {
+          "word": "H&M",
+          "hint": "Sueca"
+        },
+        {
+          "word": "Toyota",
+          "hint": "Japonesa"
+        },
+        {
+          "word": "Ford",
+          "hint": "Óvalo"
+        },
+        {
+          "word": "Honda",
+          "hint": "Motocicleta"
+        },
+        {
+          "word": "BMW",
+          "hint": "Alemana"
+        },
+        {
+          "word": "Mercedes",
+          "hint": "Estrella"
+        },
+        {
+          "word": "Sony",
+          "hint": "Electrónica"
+        },
+        {
+          "word": "Samsung",
+          "hint": "Galaxia"
+        },
+        {
+          "word": "Nintendo",
+          "hint": "Consola"
+        },
+        {
+          "word": "Disney",
+          "hint": "Castillo"
+        }
+      ]
+    },
+    {
+      "id": "moda_ropa",
+      "name": "Moda y Ropa",
+      "words": [
+        {
+          "word": "Camisa",
+          "hint": "Botones"
+        },
+        {
+          "word": "Camiseta",
+          "hint": "Manga corta"
+        },
+        {
+          "word": "Pantalón",
+          "hint": "Bolsillos"
+        },
+        {
+          "word": "Jeans",
+          "hint": "Mezclilla"
+        },
+        {
+          "word": "Falda",
+          "hint": "Piernas"
+        },
+        {
+          "word": "Vestido",
+          "hint": "Elegante"
+        },
+        {
+          "word": "Chaqueta",
+          "hint": "Cierre"
+        },
+        {
+          "word": "Abrigo",
+          "hint": "Invierno"
+        },
+        {
+          "word": "Suéter",
+          "hint": "Tejido"
+        },
+        {
+          "word": "Sudadera",
+          "hint": "Capucha"
+        },
+        {
+          "word": "Traje",
+          "hint": "Formal"
+        },
+        {
+          "word": "Corbata",
+          "hint": "Nudo"
+        },
+        {
+          "word": "Sombrero",
+          "hint": "Ala"
+        },
+        {
+          "word": "Gorra",
+          "hint": "Visera"
+        },
+        {
+          "word": "Bufanda",
+          "hint": "Cuello"
+        },
+        {
+          "word": "Guantes",
+          "hint": "Manos"
+        },
+        {
+          "word": "Calcetines",
+          "hint": "Pies"
+        },
+        {
+          "word": "Zapatos",
+          "hint": "Suela"
+        },
+        {
+          "word": "Tenis",
+          "hint": "Agujetas"
+        },
+        {
+          "word": "Botas",
+          "hint": "Lodo"
+        },
+        {
+          "word": "Sandalias",
+          "hint": "Playa"
+        },
+        {
+          "word": "Tacones",
+          "hint": "Altura"
+        },
+        {
+          "word": "Cinturón",
+          "hint": "Hebilla"
+        },
+        {
+          "word": "Bolso",
+          "hint": "Colgar"
+        },
+        {
+          "word": "Reloj",
+          "hint": "Hora"
+        },
+        {
+          "word": "Joyas",
+          "hint": "Brillo"
+        },
+        {
+          "word": "Anillo",
+          "hint": "Dedo"
+        },
+        {
+          "word": "Collar",
+          "hint": "Garganta"
+        },
+        {
+          "word": "Pendientes",
+          "hint": "Orejas"
+        }
+      ]
+    },
+    {
+      "id": "mundo_lugares",
+      "name": "Mundo y Lugares",
+      "words": [
+        {
+          "word": "País",
+          "hint": "Frontera"
+        },
+        {
+          "word": "Ciudad",
+          "hint": "Edificios"
+        },
+        {
+          "word": "Pueblo",
+          "hint": "Plaza"
+        },
+        {
+          "word": "Continente",
+          "hint": "Tierra"
+        },
+        {
+          "word": "Isla",
+          "hint": "Rodeada"
+        },
+        {
+          "word": "Península",
+          "hint": "Cabo"
+        },
+        {
+          "word": "Océano",
+          "hint": "Salado"
+        },
+        {
+          "word": "Mar",
+          "hint": "Costa"
+        },
+        {
+          "word": "Lago",
+          "hint": "Dulce"
+        },
+        {
+          "word": "Río",
+          "hint": "Caudal"
+        },
+        {
+          "word": "Montaña",
+          "hint": "Cima"
+        },
+        {
+          "word": "Volcán",
+          "hint": "Lava"
+        },
+        {
+          "word": "Desierto",
+          "hint": "Dunas"
+        },
+        {
+          "word": "Selva",
+          "hint": "Humedad"
+        },
+        {
+          "word": "Bosque",
+          "hint": "Árboles"
+        },
+        {
+          "word": "Playa",
+          "hint": "Medusa"
+        },
+        {
+          "word": "Cueva",
+          "hint": "Murciélagos"
+        },
+        {
+          "word": "Catarata",
+          "hint": "Caída"
+        },
+        {
+          "word": "Polo",
+          "hint": "Glaciar"
+        },
+        {
+          "word": "Ecuador",
+          "hint": "Línea"
+        },
+        {
+          "word": "Europa",
+          "hint": "Viejo"
+        },
+        {
+          "word": "Asia",
+          "hint": "Oriente"
+        },
+        {
+          "word": "África",
+          "hint": "Sabana"
+        },
+        {
+          "word": "América",
+          "hint": "Nuevo"
+        },
+        {
+          "word": "Oceanía",
+          "hint": "Canguros"
+        },
+        {
+          "word": "Antártida",
+          "hint": "Congelado"
+        },
+        {
+          "word": "Mapa",
+          "hint": "Coordenadas"
+        },
+        {
+          "word": "Brújula",
+          "hint": "Norte"
+        },
+        {
+          "word": "Pasaporte",
+          "hint": "Sellos"
+        },
+        {
+          "word": "Maleta",
+          "hint": "Equipaje"
+        }
+      ]
+    },
+    {
+      "id": "musica",
+      "name": "Música",
+      "words": [
+        {
+          "word": "Canción",
+          "hint": "Letra"
+        },
+        {
+          "word": "Melodía",
+          "hint": "Tararear"
+        },
+        {
+          "word": "Ritmo",
+          "hint": "Compás"
+        },
+        {
+          "word": "Armonía",
+          "hint": "Voces"
+        },
+        {
+          "word": "Nota",
+          "hint": "Tono"
+        },
+        {
+          "word": "Acorde",
+          "hint": "Conjunto"
+        },
+        {
+          "word": "Escala",
+          "hint": "Octava"
+        },
+        {
+          "word": "Clave",
+          "hint": "Sol"
+        },
+        {
+          "word": "Pentagrama",
+          "hint": "Líneas"
+        },
+        {
+          "word": "Instrumento",
+          "hint": "Tocar"
+        },
+        {
+          "word": "Guitarra",
+          "hint": "Trastes"
+        },
+        {
+          "word": "Piano",
+          "hint": "Teclas"
+        },
+        {
+          "word": "Batería",
+          "hint": "Baquetas"
+        },
+        {
+          "word": "Bajo",
+          "hint": "Grave"
+        },
+        {
+          "word": "Violín",
+          "hint": "Arco"
+        },
+        {
+          "word": "Flauta",
+          "hint": "Soplar"
+        },
+        {
+          "word": "Trompeta",
+          "hint": "Metal"
+        },
+        {
+          "word": "Saxofón",
+          "hint": "Jazz"
+        },
+        {
+          "word": "Cantante",
+          "hint": "Vocalista"
+        },
+        {
+          "word": "Coro",
+          "hint": "Grupo"
+        },
+        {
+          "word": "Banda",
+          "hint": "Integrantes"
+        },
+        {
+          "word": "Orquesta",
+          "hint": "Sinfónica"
+        },
+        {
+          "word": "Concierto",
+          "hint": "En vivo"
+        },
+        {
+          "word": "Álbum",
+          "hint": "Recopilación"
+        },
+        {
+          "word": "Disco",
+          "hint": "Platino"
+        },
+        {
+          "word": "Vinilo",
+          "hint": "Aguja"
+        },
+        {
+          "word": "Casete",
+          "hint": "Cinta"
+        },
+        {
+          "word": "CD",
+          "hint": "Láser"
+        },
+        {
+          "word": "MP3",
+          "hint": "Digital"
+        },
+        {
+          "word": "Auriculares",
+          "hint": "Diadema"
+        }
+      ]
+    },
+    {
+      "id": "para_adultos",
+      "name": "Para adultos",
+      "words": [
+        {
+          "word": "Impuestos",
+          "hint": "Declaración"
+        },
+        {
+          "word": "Hipoteca",
+          "hint": "Casa"
+        },
+        {
+          "word": "Facturas",
+          "hint": "Recibos"
+        },
+        {
+          "word": "Deudas",
+          "hint": "Préstamo"
+        },
+        {
+          "word": "Divorcio",
+          "hint": "Separación"
+        },
+        {
+          "word": "Suegra",
+          "hint": "Visita"
+        },
+        {
+          "word": "Calvicie",
+          "hint": "Entradas"
+        },
+        {
+          "word": "Arrugas",
+          "hint": "Edad"
+        },
+        {
+          "word": "Resaca",
+          "hint": "Cruda"
+        },
+        {
+          "word": "Condon",
+          "hint": "Látex"
+        },
+        {
+          "word": "Lencería",
+          "hint": "Encaje"
+        },
+        {
+          "word": "Motel",
+          "hint": "Habitación"
+        },
+        {
+          "word": "Alcoholímetro",
+          "hint": "Soplar"
+        },
+        {
+          "word": "Antro",
+          "hint": "Cadenero"
+        },
+        {
+          "word": "Despido",
+          "hint": "Liquidación"
+        },
+        {
+          "word": "Salario mínimo",
+          "hint": "Sueldo"
+        },
+        {
+          "word": "Infidelidad",
+          "hint": "Engaño"
+        },
+        {
+          "word": "Jefe",
+          "hint": "Superior"
+        },
+        {
+          "word": "Celos",
+          "hint": "Sospecha"
+        },
+        {
+          "word": "Ex-pareja",
+          "hint": "Pasado"
+        },
+        {
+          "word": "Decepción",
+          "hint": "Fracaso"
+        },
+        {
+          "word": "Estrés",
+          "hint": "Tensión"
+        },
+        {
+          "word": "Insomnio",
+          "hint": "Desvelo"
+        },
+        {
+          "word": "Hemorroides",
+          "hint": "Pomada"
+        },
+        {
+          "word": "Mentira",
+          "hint": "Falsedad"
+        },
+        {
+          "word": "Multa",
+          "hint": "Infracción"
+        },
+        {
+          "word": "Pensión",
+          "hint": "Retiro"
+        },
+        {
+          "word": "Declaración",
+          "hint": "Anual"
+        },
+        {
+          "word": "Quincena",
+          "hint": "Depósito"
+        }
+      ]
+    },
+    {
+      "id": "personajes",
+      "name": "Personajes",
+      "words": [
+        {
+          "word": "Superman",
+          "hint": "Kriptonita"
+        },
+        {
+          "word": "Batman",
+          "hint": "Murciélago"
+        },
+        {
+          "word": "Spiderman",
+          "hint": "Arácnido"
+        },
+        {
+          "word": "Iron Man",
+          "hint": "Armadura"
+        },
+        {
+          "word": "Capitán América",
+          "hint": "Escudo"
+        },
+        {
+          "word": "Hulk",
+          "hint": "Verde"
+        },
+        {
+          "word": "Thor",
+          "hint": "Martillo"
+        },
+        {
+          "word": "Wonder Woman",
+          "hint": "Lazo"
+        },
+        {
+          "word": "Wolverine",
+          "hint": "Garras"
+        },
+        {
+          "word": "Flash",
+          "hint": "Velocidad"
+        },
+        {
+          "word": "Mickey Mouse",
+          "hint": "Ratón"
+        },
+        {
+          "word": "Bugs Bunny",
+          "hint": "Zanahoria"
+        },
+        {
+          "word": "Homer Simpson",
+          "hint": "Rosquilla"
+        },
+        {
+          "word": "Bob Esponja",
+          "hint": "Cuadrado"
+        },
+        {
+          "word": "Darth Vader",
+          "hint": "Respiración"
+        },
+        {
+          "word": "Luke Skywalker",
+          "hint": "Jedi"
+        },
+        {
+          "word": "Yoda",
+          "hint": "Maestro"
+        },
+        {
+          "word": "Harry Potter",
+          "hint": "Cicatriz"
+        },
+        {
+          "word": "Voldemort",
+          "hint": "Innombrable"
+        },
+        {
+          "word": "Gandalf",
+          "hint": "Gris"
+        },
+        {
+          "word": "Frodo",
+          "hint": "Comarca"
+        },
+        {
+          "word": "James Bond",
+          "hint": "Agente"
+        },
+        {
+          "word": "Indiana Jones",
+          "hint": "Látigo"
+        },
+        {
+          "word": "Sherlock Holmes",
+          "hint": "Pipa"
+        },
+        {
+          "word": "Drácula",
+          "hint": "Transilvania"
+        },
+        {
+          "word": "Frankenstein",
+          "hint": "Tornillos"
+        },
+        {
+          "word": "Tarzán",
+          "hint": "Liana"
+        },
+        {
+          "word": "Peter Pan",
+          "hint": "Sombra"
+        },
+        {
+          "word": "Pinocho",
+          "hint": "Madera"
+        },
+        {
+          "word": "Cenicienta",
+          "hint": "Zapatilla"
+        }
+      ]
+    },
+    {
+      "id": "tecnologia",
+      "name": "Tecnología",
+      "words": [
+        {
+          "word": "Computadora",
+          "hint": "Gabinete"
+        },
+        {
+          "word": "Portátil",
+          "hint": "Regazo"
+        },
+        {
+          "word": "Tablet",
+          "hint": "Táctil"
+        },
+        {
+          "word": "Smartwatch",
+          "hint": "Muñeca"
+        },
+        {
+          "word": "Pantalla",
+          "hint": "Píxeles"
+        },
+        {
+          "word": "Teclado",
+          "hint": "Switch"
+        },
+        {
+          "word": "Ratón",
+          "hint": "Clic"
+        },
+        {
+          "word": "Impresora",
+          "hint": "Tinta"
+        },
+        {
+          "word": "Altavoz",
+          "hint": "Sonido"
+        },
+        {
+          "word": "Micrófono",
+          "hint": "Voz"
+        },
+        {
+          "word": "Cámara",
+          "hint": "Lente"
+        },
+        {
+          "word": "Batería",
+          "hint": "Porcentaje"
+        },
+        {
+          "word": "Cargador",
+          "hint": "Corriente"
+        },
+        {
+          "word": "Cable",
+          "hint": "Cobre"
+        },
+        {
+          "word": "Enchufe",
+          "hint": "Toma"
+        },
+        {
+          "word": "Bluetooth",
+          "hint": "Inalámbrico"
+        },
+        {
+          "word": "Internet",
+          "hint": "Red"
+        },
+        {
+          "word": "Software",
+          "hint": "Programa"
+        },
+        {
+          "word": "Hardware",
+          "hint": "Componentes"
+        },
+        {
+          "word": "Código",
+          "hint": "Líneas"
+        },
+        {
+          "word": "Algoritmo",
+          "hint": "Lógica"
+        },
+        {
+          "word": "Nube",
+          "hint": "Almacenamiento"
+        },
+        {
+          "word": "Servidor",
+          "hint": "Datos"
+        },
+        {
+          "word": "Hacker",
+          "hint": "Pirata"
+        },
+        {
+          "word": "Virus",
+          "hint": "Malware"
+        }
+      ]
+    },
+    {
+      "id": "trabajos",
+      "name": "Trabajos",
+      "words": [
+        {
+          "word": "Policía",
+          "hint": "Placa"
+        },
+        {
+          "word": "Bombero",
+          "hint": "Manguera"
+        },
+        {
+          "word": "Médico",
+          "hint": "Bata"
+        },
+        {
+          "word": "Enfermera",
+          "hint": "Cofia"
+        },
+        {
+          "word": "Profesor",
+          "hint": "Pizarrón"
+        },
+        {
+          "word": "Abogado",
+          "hint": "Tribunal"
+        },
+        {
+          "word": "Juez",
+          "hint": "Martillo"
+        },
+        {
+          "word": "Político",
+          "hint": "Campaña"
+        },
+        {
+          "word": "Periodista",
+          "hint": "Noticia"
+        },
+        {
+          "word": "Escritor",
+          "hint": "Libro"
+        },
+        {
+          "word": "Pintor",
+          "hint": "Pincel"
+        },
+        {
+          "word": "Músico",
+          "hint": "Instrumento"
+        },
+        {
+          "word": "Actor",
+          "hint": "Escenario"
+        },
+        {
+          "word": "Cantante",
+          "hint": "Micrófono"
+        },
+        {
+          "word": "Bailarín",
+          "hint": "Coreografía"
+        },
+        {
+          "word": "Atleta",
+          "hint": "Deporte"
+        },
+        {
+          "word": "Cocinero",
+          "hint": "Gorro"
+        },
+        {
+          "word": "Cajero",
+          "hint": "Registradora"
+        },
+        {
+          "word": "Peluquero",
+          "hint": "Tijeras"
+        },
+        {
+          "word": "Mecánico",
+          "hint": "Grasa"
+        },
+        {
+          "word": "Carpintero",
+          "hint": "Serrín"
+        },
+        {
+          "word": "Electricista",
+          "hint": "Cables"
+        },
+        {
+          "word": "Plomero",
+          "hint": "Tubería"
+        },
+        {
+          "word": "Albañil",
+          "hint": "Cemento"
+        },
+        {
+          "word": "Arquitecto",
+          "hint": "Planos"
+        },
+        {
+          "word": "Programador",
+          "hint": "Teclado"
+        }
+      ]
+    },
+    {
+      "id": "transportes",
+      "name": "Transportes",
+      "words": [
+        {
+          "word": "Coche",
+          "hint": "Manual"
+        },
+        {
+          "word": "Moto",
+          "hint": "Casco"
+        },
+        {
+          "word": "Bicicleta",
+          "hint": "Pedales"
+        },
+        {
+          "word": "Patineta",
+          "hint": "Ruedas"
+        },
+        {
+          "word": "Autobús",
+          "hint": "Ruta"
+        },
+        {
+          "word": "Metro",
+          "hint": "Subterráneo"
+        },
+        {
+          "word": "Tren",
+          "hint": "Vías"
+        },
+        {
+          "word": "Barco",
+          "hint": "Ancla"
+        },
+        {
+          "word": "Submarino",
+          "hint": "Periscopio"
+        },
+        {
+          "word": "Avión",
+          "hint": "Alas"
+        },
+        {
+          "word": "Helicóptero",
+          "hint": "Hélice"
+        },
+        {
+          "word": "Globo",
+          "hint": "Canastilla"
+        },
+        {
+          "word": "Cohete",
+          "hint": "Despegue"
+        },
+        {
+          "word": "Nave espacial",
+          "hint": "Órbita"
+        },
+        {
+          "word": "Camión",
+          "hint": "Carga"
+        },
+        {
+          "word": "Taxi",
+          "hint": "Tarifa"
+        },
+        {
+          "word": "Ambulancia",
+          "hint": "Sirena"
+        },
+        {
+          "word": "Patrulla",
+          "hint": "Torreta"
+        },
+        {
+          "word": "Camión de bomberos",
+          "hint": "Escalera"
+        },
+        {
+          "word": "Tractor",
+          "hint": "Arado"
+        },
+        {
+          "word": "Grúa",
+          "hint": "Gancho"
+        },
+        {
+          "word": "Caballo",
+          "hint": "Jinete"
+        },
+        {
+          "word": "Camello",
+          "hint": "Joroba"
+        },
+        {
+          "word": "Teleférico",
+          "hint": "Cable"
+        },
+        {
+          "word": "Ascensor",
+          "hint": "Pisos"
+        }
+      ]
+    },
+    {
+      "id": "verano",
+      "name": "Verano",
+      "words": [
+        {
+          "word": "Sol",
+          "hint": "Bronceado"
+        },
+        {
+          "word": "Calor",
+          "hint": "Temperatura"
+        },
+        {
+          "word": "Sudor",
+          "hint": "Transpirar"
+        },
+        {
+          "word": "Playa",
+          "hint": "Medusa"
+        },
+        {
+          "word": "Arena",
+          "hint": "Castillo"
+        },
+        {
+          "word": "Mar",
+          "hint": "Salado"
+        },
+        {
+          "word": "Ola",
+          "hint": "Surf"
+        },
+        {
+          "word": "Bikini",
+          "hint": "Traje"
+        },
+        {
+          "word": "Toalla",
+          "hint": "Secar"
+        },
+        {
+          "word": "Sombrilla",
+          "hint": "Sombra"
+        },
+        {
+          "word": "Bloqueador",
+          "hint": "Crema"
+        },
+        {
+          "word": "Gafas de sol",
+          "hint": "Lentes"
+        },
+        {
+          "word": "Chanclas",
+          "hint": "Pies"
+        },
+        {
+          "word": "Helado",
+          "hint": "Cono"
+        },
+        {
+          "word": "Paleta",
+          "hint": "Hielo"
+        },
+        {
+          "word": "Hielo",
+          "hint": "Frío"
+        },
+        {
+          "word": "Sandía",
+          "hint": "Semillas"
+        },
+        {
+          "word": "Melón",
+          "hint": "Dulce"
+        },
+        {
+          "word": "Refresco",
+          "hint": "Gas"
+        },
+        {
+          "word": "Piscina",
+          "hint": "Cloro"
+        },
+        {
+          "word": "Flotador",
+          "hint": "Inflable"
+        },
+        {
+          "word": "Tobogán",
+          "hint": "Resbaladilla"
+        },
+        {
+          "word": "Campamento",
+          "hint": "Tienda"
+        },
+        {
+          "word": "Asador",
+          "hint": "Carbón"
+        },
+        {
+          "word": "Mosquito",
+          "hint": "Picadura"
+        },
+        {
+          "word": "Ventilador",
+          "hint": "Aspas"
+        },
+        {
+          "word": "Vacaciones",
+          "hint": "Descanso"
+        }
+      ]
+    }
+  ]
+}

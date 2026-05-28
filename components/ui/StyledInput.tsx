@@ -1,30 +1,20 @@
 import React, { forwardRef } from 'react';
-import { View } from 'react-native';
-import { Input, InputProps } from 'react-native-elements';
-import { cssInterop } from 'nativewind';
+import { View, TextInput } from 'react-native';
+import { Input, InputProps } from 'heroui-native';
 
-cssInterop(Input, {
-  className: 'containerStyle',
-});
-
-interface StyledInputProps extends Omit<
-  InputProps,
-  'containerStyle' | 'inputContainerStyle' | 'inputStyle'
-> {
-  className?: string;
+interface StyledInputProps extends InputProps {
   containerClassName?: string;
   activeClassName?: string;
   disabledClassName?: string;
 }
 
-const StyledInput = forwardRef<any, StyledInputProps>(function StyledInput(
+const StyledInput = forwardRef<TextInput, StyledInputProps>(function StyledInput(
   {
     className = '',
     containerClassName = '',
     activeClassName = 'border-slate-600 bg-slate-800',
     disabledClassName = 'border-slate-800 bg-slate-900/60',
     editable = true,
-    placeholderTextColor = '#cbd5e1',
     ...props
   },
   ref
@@ -35,16 +25,9 @@ const StyledInput = forwardRef<any, StyledInputProps>(function StyledInput(
     <View className={containerClassName}>
       <Input
         ref={ref}
-        className={`rounded-lg border border-slate-200 font-poppins text-lg ${resolvedContainerClassName} ${className}`}
-        inputContainerStyle={{ borderBottomWidth: 0, paddingHorizontal: 0, paddingVertical: 0 }}
-        inputStyle={{
-          color: '#f1f5f9',
-          fontSize: 16,
-          paddingHorizontal: 12,
-          paddingVertical: 8,
-        }}
-        placeholderTextColor={placeholderTextColor}
         editable={editable}
+        placeholderColorClassName="text-slate-300"
+        className={`font-poppins rounded-lg border border-slate-200 px-3 py-2 text-base text-slate-100 ${resolvedContainerClassName} ${className}`}
         {...props}
       />
     </View>

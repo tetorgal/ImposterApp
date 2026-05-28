@@ -2,16 +2,15 @@ import { View, Text, Pressable, Animated } from 'react-native';
 import { useEffect, useRef } from 'react';
 import StyledIcon from './StyledIcon';
 
-import StyledAvatar from './StyledAvatar';
-
-type AvatarVariant = 'red' | 'yellow' | 'blue' | 'green';
+import { Avatar } from 'heroui-native';
+import { LucideIcon, Trash } from 'lucide-react-native';
 
 interface PlayerPillProps {
   name?: string;
   initial: string;
-  iconName: string;
+  iconName: LucideIcon;
   iconColor: string;
-  variant?: AvatarVariant;
+  variant: 'success' | 'danger' | 'accent' | 'warning';
   onDelete?: () => void;
   onEdit?: () => void;
   isNew?: boolean;
@@ -22,7 +21,7 @@ export function PlayerPill({
   iconName,
   iconColor,
   initial,
-  variant = 'red',
+  variant = 'danger',
   onDelete,
   onEdit,
   isNew = false,
@@ -66,11 +65,13 @@ export function PlayerPill({
       {/* Card */}
       <View className="flex flex-1 flex-row items-center justify-between rounded-3xl bg-slate-800 px-4 py-3">
         <View className="flex flex-row items-center gap-2">
-          <StyledAvatar rounded title={initial.toUpperCase()} variant={variant} />
-          <Text className="px-2 font-poppins text-lg text-gray-300 ">{name}</Text>
+          <Avatar className="rounded-full" color={variant} alt={initial.toUpperCase()}>
+            <Avatar.Fallback>{initial.toUpperCase()}</Avatar.Fallback>
+          </Avatar>
+          <Text className="font-poppins px-2 text-lg text-gray-300 ">{name}</Text>
         </View>
         <Pressable onPress={onEdit} className="p-1">
-          <StyledIcon name={iconName} type="font-awesome" colorName={iconColor} size={16} />
+          <StyledIcon Icon={iconName} colorName={iconColor} size={16} />
         </Pressable>
       </View>
       {/* Cancel */}
@@ -79,7 +80,7 @@ export function PlayerPill({
                     colorNames={['red-400', 'red-600']}
                     className="w-12 h-12 items-center justify-center rounded-full"
                 > */}
-        <StyledIcon name={'trash'} type="font-awesome" colorName={'red-400'} size={16} />
+        <StyledIcon Icon={Trash} colorName={'red-400'} size={16} />
         {/* </StyledGradient> */}
       </Pressable>
     </Animated.View>
