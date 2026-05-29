@@ -22,8 +22,8 @@ export function HeaderIcon({
   return (
     <View className="flex items-center justify-center py-4">
       <StyledIcon Icon={iconName} size={iconSize} colorName={iconColorName} />
-      <Text className="font-poppins text-2xl font-bold text-slate-200">{title}</Text>
-      {subtitle != null && <Text className="text-md font-poppins text-gray-400">{subtitle}</Text>}
+      <Text className="text-2xl font-bold text-slate-200">{title}</Text>
+      {subtitle != null && <Text className="text-md text-gray-400">{subtitle}</Text>}
     </View>
   );
 }

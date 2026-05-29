@@ -167,12 +167,12 @@ export default function OfflinePlayers() {
               iconColorName={themeColors.gray}
               subtitle="3-24 jugadores"
             />
-            <Text className="font-poppins my-4 text-center text-green-400">
+            <Text className="my-4 text-center text-green-400">
               {playerDB.length} jugadores
             </Text>
 
             {feedbackMessage ? (
-              <Text className="font-poppins mb-3 text-center text-sm text-slate-300">
+              <Text className="mb-3 text-center text-sm text-slate-300">
                 {feedbackMessage}
               </Text>
             ) : null}
@@ -227,7 +227,7 @@ export default function OfflinePlayers() {
               {/* <StyledGradient
                 colorNames={['slate-700', 'gray-800']}
                 className="w-full items-center rounded-xl px-4 py-4">
-                <Text className="font-poppins font-bold text-white">Cancelar</Text>
+                <Text className="font-bold text-white">Cancelar</Text>
               </StyledGradient> */}
             </Pressable>
           </Sheet>

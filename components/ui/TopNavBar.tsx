@@ -40,13 +40,14 @@ export default function TopNavBar({ variant = 'home' }: TopNavBarProps) {
             accessibilityLabel="Go to home"
             className="rounded-full bg-slate-700/60 p-3 active:bg-slate-600"
             onPress={navigateHome}>
-            <StyledIcon Icon={Home} size={18} colorName={themeColors.text} />
+
+            <Home size={18} color={themeColors.text}></Home>
           </Pressable>
           <Pressable
             accessibilityLabel="Go to about"
             className="rounded-full bg-slate-700/60 p-3 active:bg-slate-600"
             onPress={navigateAbout}>
-            <StyledIcon Icon={BadgeQuestionMark} size={18} colorName={themeColors.gray} />
+            <BadgeQuestionMark  size={18} color={themeColors.gray} />
           </Pressable>
         </>
       ) : (

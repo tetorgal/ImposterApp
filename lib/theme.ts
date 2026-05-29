@@ -18,5 +18,6 @@ export const themeColors = {
   localGradientMiddle: '#9333ea', // purple-500
   localGradientEnd: '#1d4ed8', // purple-600
   onlineGradientStart: '#22c55e', // green-500
+  onlineGradientMiddle: '#22a14e', // green-500
   onlineGradientEnd: '#16a34a', // green-600
 };

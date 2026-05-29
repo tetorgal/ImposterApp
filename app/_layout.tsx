@@ -5,7 +5,11 @@ import { StatusBar } from 'react-native';
 import { HeroUINativeProvider } from 'heroui-native';
 
 import * as SplashScreen from 'expo-splash-screen';
-import { useFonts, Poppins_400Regular, Poppins_700Bold } from '@expo-google-fonts/poppins';
+import {
+  useFonts,
+  GoogleSans_400Regular,
+  GoogleSans_700Bold,
+} from '@expo-google-fonts/google-sans';
 import React, { useEffect } from 'react';
 import TopNavBar from '@components/ui/TopNavBar';
 import { ConvexProvider, ConvexReactClient } from 'convex/react';
@@ -19,8 +23,8 @@ export default function RootLayout() {
   });
 
   const [fontsLoaded, fontError] = useFonts({
-    PRegular: Poppins_400Regular,
-    PBold: Poppins_700Bold,
+    GoogleSans_400Regular,
+    GoogleSans_700Bold,
   });
 
   const createHeader = (variant: 'home' | 'back') => () => <TopNavBar variant={variant} />;

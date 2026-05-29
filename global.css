@@ -5,11 +5,11 @@
   :root {
     @theme {
       /* Single font per variant - no fallbacks */
-      --font-sans: 'Poppins_400Regular';
-      --font-normal: 'Poppins_400Regular';
-      --font-medium: 'Poppins_400Regular';
-      --font-semibold: 'Poppins_700Bold';
-      --font-bold: 'Poppins_700Bold';
+      --font-sans: 'GoogleSans_400Regular';
+      --font-normal: 'GoogleSans_400Regular';
+      --font-medium: 'GoogleSans_400Regular';
+      --font-semibold: 'GoogleSans_700Bold';
+      --font-bold: 'GoogleSans_700Bold';
       --font-mono: 'FiraCode-Regular';
     }
     /* Tailwind theme moved here: colors and text-shadow */

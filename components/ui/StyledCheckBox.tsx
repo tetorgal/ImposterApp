@@ -1,4 +1,5 @@
 import { Image, ImageSourcePropType, Pressable, Text, View } from 'react-native';
+import { Circle, CircleDot } from 'lucide-react-native';
 import StyledIcon from './StyledIcon';
 
 interface StyledCheckBoxProps {
@@ -24,8 +25,7 @@ export default function StyledCheckBox({
       onPress={onPress}>
       <View className="absolute right-2 top-2">
         <StyledIcon
-          name={selected ? 'dot-circle-o' : 'circle-thin'}
-          type="font-awesome"
+          Icon={selected ? CircleDot : Circle}
           size={20}
           colorName={selected ? 'green-400' : 'slate-300'}
         />
@@ -34,7 +34,7 @@ export default function StyledCheckBox({
       <View className="flex-1 items-center justify-center overflow-hidden rounded-lg">
         <Image source={imageSource} className="h-full w-full" resizeMode="contain" />
       </View>
-      <Text className="font-poppins mt-2 text-center text-base text-slate-100" numberOfLines={1}>
+      <Text className="mt-2 text-center text-base text-slate-100" numberOfLines={1}>
         {title}
       </Text>
     </Pressable>

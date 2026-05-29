@@ -50,12 +50,12 @@ export default function ListView({
             onPress={item.onPress}>
             <View className="flex-row items-center gap-2">
               <Text
-                className={`font-poppins font-bold ${finalLabelClassName} group-active:text-slate-300`}>
+                className={`font-bold ${finalLabelClassName} group-active:text-slate-300`}>
                 {item.label}
               </Text>
               {item.labelSuffix ? (
                 <Text
-                  className={`font-poppins font-bold ${item.labelSuffixClassName ?? finalLabelClassName} group-active:text-slate-300`}>
+                  className={`font-bold ${item.labelSuffixClassName ?? finalLabelClassName} group-active:text-slate-300`}>
                   {item.labelSuffix}
                 </Text>
               ) : null}
@@ -65,7 +65,7 @@ export default function ListView({
               <View className="flex-row items-center">
                 {item.rightText ? (
                   <Text
-                    className={`font-poppins mr-2 ${finalRightTextClassName} group-active:text-slate-300`}>
+                    className={`mr-2 ${finalRightTextClassName} group-active:text-slate-300`}>
                     {item.rightText}
                   </Text>
                 ) : null}

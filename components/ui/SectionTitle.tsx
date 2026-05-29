@@ -5,5 +5,5 @@ interface SectionTitleProps {
 }
 
 export default function SectionTitle({ title }: SectionTitleProps) {
-  return <Text className="font-poppins text-xl text-slate-200">{title}</Text>;
+  return <Text className="text-xl text-slate-200">{title}</Text>;
 }

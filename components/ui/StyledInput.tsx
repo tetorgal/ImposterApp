@@ -27,7 +27,7 @@ const StyledInput = forwardRef<TextInput, StyledInputProps>(function StyledInput
         ref={ref}
         editable={editable}
         placeholderColorClassName="text-slate-300"
-        className={`font-poppins rounded-lg border border-slate-200 px-3 py-2 text-base text-slate-100 ${resolvedContainerClassName} ${className}`}
+        className={`rounded-lg border border-slate-200 px-3 py-2 text-base text-slate-100 ${resolvedContainerClassName} ${className}`}
         {...props}
       />
     </View>

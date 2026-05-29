@@ -68,7 +68,7 @@ export function PlayerPill({
           <Avatar className="rounded-full" color={variant} alt={initial.toUpperCase()}>
             <Avatar.Fallback>{initial.toUpperCase()}</Avatar.Fallback>
           </Avatar>
-          <Text className="font-poppins px-2 text-lg text-gray-300 ">{name}</Text>
+          <Text className="px-2 text-lg text-gray-300 ">{name}</Text>
         </View>
         <Pressable onPress={onEdit} className="p-1">
           <StyledIcon Icon={iconName} colorName={iconColor} size={16} />
