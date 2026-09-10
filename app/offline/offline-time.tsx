@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import { HeaderIcon } from '@components/ui/HeaderIcon';
 import ListView from '@components/ui/ListView';
 import { Clock } from 'lucide-react-native';
 import { themeColors } from '@lib/theme';
+import { useGameStore } from '@lib/store';
 
-export default function OfflinePregame() {
-  const [selectedMinutes, setSelectedMinutes] = useState<number>(4);
+export default function OfflineTime() {
+  const durationMinutes = useGameStore((state) => state.gameConfig.durationMinutes);
+  const setGameConfig = useGameStore((state) => state.setGameConfig);
+
   const listItems = [
     ...Array.from({ length: 24 }, (_, index) => {
       const minutes = index + 1;
       const isRecommended = minutes === 4;
-      const isSelected = selectedMinutes === minutes;
+      const isSelected = durationMinutes === minutes;
 
       return {
         key: `${minutes}-minutes`,
@@ -19,7 +22,7 @@ export default function OfflinePregame() {
         labelSuffix: isRecommended && !isSelected ? '(recomendado)' : undefined,
         labelSuffixClassName: 'text-gray-200',
         isSelected,
-        onPress: () => setSelectedMinutes(minutes),
+        onPress: () => setGameConfig({ durationMinutes: minutes }),
       };
     }),
   ];

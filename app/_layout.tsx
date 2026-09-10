@@ -12,16 +12,10 @@ import {
 } from '@expo-google-fonts/google-sans';
 import React, { useEffect } from 'react';
 import TopNavBar from '@components/ui/TopNavBar';
-import { ConvexProvider, ConvexReactClient } from 'convex/react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
-  // CONVEX API CONF
-  const convex = new ConvexReactClient(process.env.EXPO_PUBLIC_CONVEX_URL!, {
-    unsavedChangesWarning: false,
-  });
-
   const [fontsLoaded, fontError] = useFonts({
     GoogleSans_400Regular,
     GoogleSans_700Bold,
@@ -41,43 +35,41 @@ export default function RootLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <HeroUINativeProvider>
-        <ConvexProvider client={convex}>
-          <SafeAreaProvider>
-            <Stack
-              screenOptions={{
-                headerStyle: { backgroundColor: '#0f172a' },
-                headerTintColor: '#c4c4c4',
-                headerTitle: '',
-                headerShadowVisible: false,
-              }}>
-              <Stack.Screen
-                name="index"
-                options={{ title: 'Home', headerShown: true, header: createHeader('home') }}
-              />
-              <Stack.Screen
-                name="about"
-                options={{ title: 'About', headerShown: true, header: createHeader('back') }}
-              />
-              <Stack.Screen
-                name="offline/offline-pregame"
-                options={{ title: 'Offline', headerShown: true, header: createHeader('home') }}
-              />
-              <Stack.Screen
-                name="offline/offline-players"
-                options={{ title: 'Players', headerShown: true, header: createHeader('back') }}
-              />
-              <Stack.Screen
-                name="offline/offline-rounds"
-                options={{ title: 'Rounds', headerShown: true, header: createHeader('back') }}
-              />
-              <Stack.Screen
-                name="offline/offline-time"
-                options={{ title: 'Time', headerShown: true, header: createHeader('back') }}
-              />
-            </Stack>
-            <StatusBar barStyle="light-content" />
-          </SafeAreaProvider>
-        </ConvexProvider>
+        <SafeAreaProvider>
+          <Stack
+            screenOptions={{
+              headerStyle: { backgroundColor: '#0f172a' },
+              headerTintColor: '#c4c4c4',
+              headerTitle: '',
+              headerShadowVisible: false,
+            }}>
+            <Stack.Screen
+              name="index"
+              options={{ title: 'Home', headerShown: true, header: createHeader('home') }}
+            />
+            <Stack.Screen
+              name="about"
+              options={{ title: 'About', headerShown: true, header: createHeader('back') }}
+            />
+            <Stack.Screen
+              name="offline/offline-pregame"
+              options={{ title: 'Offline', headerShown: true, header: createHeader('home') }}
+            />
+            <Stack.Screen
+              name="offline/offline-players"
+              options={{ title: 'Players', headerShown: true, header: createHeader('back') }}
+            />
+            <Stack.Screen
+              name="offline/offline-rounds"
+              options={{ title: 'Rounds', headerShown: true, header: createHeader('back') }}
+            />
+            <Stack.Screen
+              name="offline/offline-time"
+              options={{ title: 'Time', headerShown: true, header: createHeader('back') }}
+            />
+          </Stack>
+          <StatusBar barStyle="light-content" />
+        </SafeAreaProvider>
       </HeroUINativeProvider>
     </GestureHandlerRootView>
   );

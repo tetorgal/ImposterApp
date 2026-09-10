@@ -1,111 +1,88 @@
 import { View, Text, Pressable } from 'react-native';
-import AppHeader from '@components/ui/AppHeader';
-
-import SectionTitle from '@components/ui/SectionTitle';
-
 import { useRouter } from 'expo-router';
 import { ChevronRightIcon, DatabaseIcon, Globe, Smartphone } from 'lucide-react-native';
-import { themeColors } from '@lib/theme';
-import { Card, PressableFeedback } from 'heroui-native';
-// import StyledGradient from '@components/ui/StyledGradient';
-import { LinearGradient } from 'expo-linear-gradient';
+import { PressableFeedback } from 'heroui-native';
 
 export default function Index() {
   const router = useRouter();
 
   return (
-    <View className="flex-1 bg-slate-900 p-4">
-      <View className="flex items-center justify-center">
-        <AppHeader title="Impostor" imageSource={require('@assets/sus-dog.png')} />
-
-        <SectionTitle title="Modo de juego" />
-        <View className="my-5 flex flex-row gap-4">
-          <PressableFeedback
-            className=" rounded-2xl max-w-1/2"
-            onPress={() => router.navigate('/offline/offline-pregame')}>
-            <LinearGradient
-              colors={[
-                themeColors.localGradientStart,
-                themeColors.localGradientMiddle,
-                themeColors.localGradientEnd,
-              ]}
-              className="flex-1 p-1">
-              <Card className="gap-2 border-none bg-transparent shadow-none">
-                <Card.Header>
-                  <View className="flex flex-col items-center justify-center gap-2">
-                    <Smartphone size={32} color={themeColors.gray} />
-                    <Text className="font-bold text-lg text-slate-100">Local</Text>
-                  </View>
-                </Card.Header>
-
-                <Card.Body>
-                  <Text className="text-center text-slate-200">
-                    Todos juegan en el mismo dispositivo
-                  </Text>
-                </Card.Body>
-
-                <Card.Footer className="flex items-center justify-center">
-                  <View className="items-center justify-center rounded-full bg-slate-100/20 p-2 ">
-                    <Text className="font-bold text-white">Jugar</Text>
-                  </View>
-                </Card.Footer>
-              </Card>
-
-              {/* </StyledGradient> */}
-            </LinearGradient>
-          </PressableFeedback>
-
-   <PressableFeedback
-            className=" rounded-2xl max-w-1/2"
-            // onPress={() => router.navigate('/offline/offline-pregame')}
-            >
-            <LinearGradient
-              colors={[
-                themeColors.onlineGradientStart,
-                themeColors.onlineGradientMiddle,
-                themeColors.onlineGradientEnd
-              ]}
-              className="flex-1 p-1">
-              <Card className="gap-2 border-none bg-transparent shadow-none">
-                <Card.Header>
-                  <View className="flex flex-col items-center justify-center gap-1">
-                    <Globe size={32} color={themeColors.gray} />
-                    <Text className="font-bold text-lg text-slate-100">En línea</Text>
-                  </View>
-                </Card.Header>
-
-                <Card.Body>
-                  <Text className="text-center text-slate-200">
-                    Juega con varios dispositivos
-                  </Text>
-                </Card.Body>
-
-                <Card.Footer className="flex items-center justify-center">
-                  <View className="items-center justify-center rounded-full bg-slate-100/20 p-2 ">
-                    <Text className="font-bold text-white">Jugar</Text>
-                  </View>
-                </Card.Footer>
-              </Card>
-
-              {/* </StyledGradient> */}
-            </LinearGradient>
-          </PressableFeedback>
-
+    <View className="flex-1 bg-slate-950 px-6 pt-16">
+      <View className="flex-1">
+        <View className="mb-12 mt-8 flex flex-col gap-2">
+          <Text className="text-5xl font-bold tracking-tighter text-white">Impostor</Text>
+          <Text className="text-lg text-slate-400">Encuentra al mentiroso.</Text>
         </View>
 
-        <View className="flex flex-row gap-4 ">
-          <Pressable className="flex w-full flex-row items-center justify-between rounded-lg bg-slate-400/10 px-4 py-2 active:bg-slate-400/20">
-            <DatabaseIcon size={30} color={themeColors.error}></DatabaseIcon>
-            <View className="ml-2 flex-1 flex-col">
-              <Text className="font-bold text-white">Paquetes</Text>
-              <Text className="text-sm text-slate-200">
-                Toda la colección y los tuyos
-              </Text>
-            </View>
+        <Text className="mb-4 text-xs font-bold uppercase tracking-widest text-slate-500">
+          Modos de juego
+        </Text>
 
-            <ChevronRightIcon size={12} color={themeColors.border}></ChevronRightIcon>
+        <View className="mb-4 flex flex-row gap-4">
+          <Pressable
+            className="min-h-55 flex-1 overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 active:bg-slate-800"
+            onPress={() => router.navigate('/offline/offline-pregame')}>
+            <View className="flex-1 justify-between p-5">
+              <View className="mb-4 flex-col gap-3">
+                <View className="h-10 w-10 items-center justify-center rounded-full bg-emerald-500/10">
+                  <Smartphone size={20} color="#10b981" />
+                </View>
+                <Text className="text-xl font-bold tracking-tight text-white">Local</Text>
+                <Text className="text-sm leading-relaxed text-slate-400">Todos donde mismo. </Text>
+              </View>
+              <View className="items-start">
+                <View className="rounded-full bg-slate-800 px-4 py-2">
+                  <Text className="text-xs font-bold uppercase tracking-wider text-white">
+                    Jugar
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </Pressable>
+
+          <Pressable
+            className="min-h-55 flex-1 overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 opacity-50 active:bg-slate-800"
+            // onPress={() => router.navigate('/online/lobby')}
+          >
+            <View className="flex-1 justify-between p-5">
+              <View className="mb-4 flex-col gap-3">
+                <View className="h-10 w-10 items-center justify-center rounded-full bg-blue-500/10">
+                  <Globe size={20} color="#3b82f6" />
+                </View>
+                <Text className="text-xl font-bold tracking-tight text-white">En línea</Text>
+                <Text className="text-sm leading-relaxed text-slate-400">
+                  Cada quien en su pantalla.
+                </Text>
+              </View>
+              <View className="items-start">
+                <View className="rounded-full bg-slate-800 px-3 py-2">
+                  <Text className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                    Próximamente
+                  </Text>
+                </View>
+              </View>
+            </View>
           </Pressable>
         </View>
+
+        <Text className="mb-4 text-xs font-bold uppercase tracking-widest text-slate-500">
+          Contenido
+        </Text>
+
+        <Pressable className="flex-row items-center justify-between rounded-3xl border border-slate-800 bg-slate-900 p-5 active:bg-slate-800">
+          <View className="flex-row items-center gap-4">
+            <View className="h-10 w-10 items-center justify-center rounded-full bg-orange-500/10">
+              <DatabaseIcon size={20} color="#f97316" />
+            </View>
+            <View className="flex-col">
+              <Text className="text-lg font-bold tracking-tight text-white">
+                Paquetes de palabras
+              </Text>
+              <Text className="text-sm text-slate-400">Administra tus colecciones</Text>
+            </View>
+          </View>
+          <ChevronRightIcon size={20} color="#64748b" />
+        </Pressable>
       </View>
     </View>
   );

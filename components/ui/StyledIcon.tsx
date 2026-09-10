@@ -49,14 +49,11 @@ const StyledIcon = ({ Icon, colorName, ...props }: StyledIconProps) => {
 
   const [name, shade] = normalizedColor.split('-');
   const candidate: string | undefined =
-    (colors as { [key: string]: any })[name]?.[shade] ||
-    (colors as { [key: string]: any })[name];
+    (colors as { [key: string]: any })[name]?.[shade] || (colors as { [key: string]: any })[name];
 
   const directFallback = COLOR_FALLBACKS[normalizedColor];
   const resolvedColor =
-    directFallback ??
-    (candidate && !isOklchColor(candidate) ? candidate : undefined) ??
-    '#000';
+    directFallback ?? (candidate && !isOklchColor(candidate) ? candidate : undefined) ?? '#000';
 
   return <Icon color={resolvedColor} {...props} />;
 };

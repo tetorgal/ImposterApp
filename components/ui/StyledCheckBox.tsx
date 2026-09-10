@@ -1,6 +1,5 @@
 import { Image, ImageSourcePropType, Pressable, Text, View } from 'react-native';
 import { Circle, CircleDot } from 'lucide-react-native';
-import StyledIcon from './StyledIcon';
 
 interface StyledCheckBoxProps {
   title: string;
@@ -19,24 +18,21 @@ export default function StyledCheckBox({
 }: StyledCheckBoxProps) {
   return (
     <Pressable
-      className={`relative mb-3 aspect-square overflow-hidden rounded-xl border-2 p-3 ${
-        selected ? 'border-green-400 bg-green-800/70' : 'border-slate-600 bg-slate-800/40'
+      className={`relative mb-3 aspect-[4/3] overflow-hidden rounded-2xl border ${
+        selected ? 'border-emerald-500 bg-emerald-500/10' : 'border-slate-800 bg-slate-900'
       } ${className}`}
       onPress={onPress}>
-      <View className="absolute right-2 top-2">
-        <StyledIcon
-          Icon={selected ? CircleDot : Circle}
-          size={20}
-          colorName={selected ? 'green-400' : 'slate-300'}
-        />
+      <View className="flex-1 items-center justify-center pt-2">
+        <Image source={imageSource} className="h-16 w-16" resizeMode="contain" />
       </View>
-
-      <View className="flex-1 items-center justify-center overflow-hidden rounded-lg">
-        <Image source={imageSource} className="h-full w-full" resizeMode="contain" />
+      <View className="flex-row items-center justify-between px-4 pb-3">
+        <Text
+          className={`font-bold tracking-tight ${selected ? 'text-emerald-400' : 'text-slate-300'}`}
+          numberOfLines={1}>
+          {title}
+        </Text>
+        {selected ? <CircleDot size={16} color="#10b981" /> : <Circle size={16} color="#475569" />}
       </View>
-      <Text className="mt-2 text-center text-base text-slate-100" numberOfLines={1}>
-        {title}
-      </Text>
     </Pressable>
   );
 }

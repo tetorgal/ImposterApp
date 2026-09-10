@@ -2,19 +2,21 @@ import { View, Text, Pressable, Animated } from 'react-native';
 import { useEffect, useRef } from 'react';
 import StyledIcon from './StyledIcon';
 
-import { Avatar } from 'heroui-native';
 import { LucideIcon, Trash } from 'lucide-react-native';
+import { themeColors } from '@lib/theme';
 
 interface PlayerPillProps {
   name?: string;
   initial: string;
   iconName: LucideIcon;
   iconColor: string;
-  variant: 'success' | 'danger' | 'accent' | 'warning';
+  variant: 'success' | 'danger' | 'secondary' | 'warning';
   onDelete?: () => void;
   onEdit?: () => void;
   isNew?: boolean;
   isDeleting?: boolean;
+  isSelected?: boolean;
+  disableDelete?: boolean;
 }
 export function PlayerPill({
   name,
@@ -26,6 +28,8 @@ export function PlayerPill({
   onEdit,
   isNew = false,
   isDeleting = false,
+  isSelected = false,
+  disableDelete = false,
 }: PlayerPillProps) {
   const popScale = useRef(new Animated.Value(0.92)).current;
   const deleteScale = useRef(new Animated.Value(1)).current;
@@ -63,26 +67,39 @@ export function PlayerPill({
       style={{ transform: [{ scale: isNew ? popScale : deleteScale }], opacity: deleteOpacity }}
       className="flex w-full flex-row items-center gap-4">
       {/* Card */}
-      <View className="flex flex-1 flex-row items-center justify-between rounded-3xl bg-slate-800 px-4 py-3">
-        <View className="flex flex-row items-center gap-2">
-          <Avatar className="rounded-full" color={variant} alt={initial.toUpperCase()}>
-            <Avatar.Fallback>{initial.toUpperCase()}</Avatar.Fallback>
-          </Avatar>
-          <Text className="px-2 text-lg text-gray-300 ">{name}</Text>
+      <View
+        className={`flex flex-1 flex-row items-center justify-between rounded-full border-2 px-4 py-3 ${
+          isSelected ? 'border-red-500 bg-red-500/20' : 'border-transparent bg-slate-800'
+        }`}>
+        <View className="flex flex-row items-center gap-3">
+          <View
+            className={`h-10 w-10 items-center justify-center rounded-full ${
+              variant === 'success'
+                ? 'bg-emerald-500'
+                : variant === 'danger'
+                  ? 'bg-rose-500'
+                  : variant === 'warning'
+                    ? 'bg-amber-500'
+                    : 'bg-indigo-500'
+            }`}>
+            <Text className="text-lg font-bold text-white">{initial?.toUpperCase() || '?'}</Text>
+          </View>
+          <Text className={`text-lg font-bold ${isSelected ? 'text-white' : 'text-slate-200'}`}>
+            {name}
+          </Text>
         </View>
         <Pressable onPress={onEdit} className="p-1">
           <StyledIcon Icon={iconName} colorName={iconColor} size={16} />
         </Pressable>
       </View>
       {/* Cancel */}
-      <Pressable className="shrink-0" onPress={onDelete}>
-        {/* <StyledGradient
-                    colorNames={['red-400', 'red-600']}
-                    className="w-12 h-12 items-center justify-center rounded-full"
-                > */}
-        <StyledIcon Icon={Trash} colorName={'red-400'} size={16} />
-        {/* </StyledGradient> */}
-      </Pressable>
+      {!disableDelete && (
+        <Pressable
+          className="h-10 w-10 shrink-0 items-center justify-center rounded-full bg-rose-500 active:bg-rose-600"
+          onPress={onDelete}>
+          <Trash size={22} color="#ffffff" />
+        </Pressable>
+      )}
     </Animated.View>
   );
 }

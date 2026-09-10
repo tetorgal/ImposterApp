@@ -1,67 +1,32 @@
 import { HeaderIcon } from '@components/ui/HeaderIcon';
 import Sheet from '@components/ui/Sheet';
-// import StyledGradient from '@components/ui/StyledGradient';
-import StyledIcon from '@components/ui/StyledIcon';
 import StyledInput from '@components/ui/StyledInput';
 import { PlayerPill } from '@components/ui/PlayerPill';
-import { api } from '@/convex/_generated/api';
-import type { Id } from '@/convex/_generated/dataModel';
-import { useQuery, useMutation } from 'convex/react';
+import { useGameStore } from '@lib/store';
 import { useEffect, useRef, useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-
-import {
-  KeyboardAvoidingView,
-  Platform,
-  Pressable,
-  ScrollView,
-  Text,
-  Vibration,
-  View,
-} from 'react-native';
+import { Platform, Pressable, ScrollView, Text, Vibration, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { GroupIcon, Pencil, PencilIcon, PlusIcon } from 'lucide-react-native';
+import { GroupIcon, PencilIcon, PlusIcon } from 'lucide-react-native';
 import { themeColors } from '@lib/theme';
-
-type AvatarVariant = 'danger' | 'warning' | 'primary' | 'success';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useRouter } from 'expo-router';
 
 type PlayerForm = {
   playerName: string;
 };
 
-type PlayerDoc = {
-  _id: Id<'players'>;
-  playerName: string;
-  variant: AvatarVariant;
-};
-
-const avatarVariants: AvatarVariant[] = ['danger', 'warning', 'primary', 'success'];
-
-const getNextVariant = (players: PlayerDoc[]) => {
-  let selectedVariant = avatarVariants[0];
-  let lowestCount = Number.POSITIVE_INFINITY;
-
-  avatarVariants.forEach((variant) => {
-    const count = players.filter((player) => player.variant === variant).length;
-    if (count < lowestCount) {
-      lowestCount = count;
-      selectedVariant = variant;
-    }
-  });
-
-  return selectedVariant;
-};
-
 export default function OfflinePlayers() {
   const insets = useSafeAreaInsets();
-  const playerDB = (useQuery(api.controllers.players.get) ?? []) as PlayerDoc[];
-  const createPlayer = useMutation(api.controllers.players.create);
-  const updatePlayer = useMutation(api.controllers.players.update);
-  const deletePlayer = useMutation(api.controllers.players.remove);
+  const router = useRouter();
 
-  const [editingId, setEditingId] = useState<Id<'players'> | null>(null);
-  const [newlyCreatedId, setNewlyCreatedId] = useState<Id<'players'> | null>(null);
-  const [deletingId, setDeletingId] = useState<Id<'players'> | null>(null);
+  const players = useGameStore((state) => state.players);
+  const addPlayer = useGameStore((state) => state.addPlayer);
+  const updatePlayer = useGameStore((state) => state.updatePlayer);
+  const removePlayer = useGameStore((state) => state.removePlayer);
+
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
   const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
   const feedbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -71,168 +36,152 @@ export default function OfflinePlayers() {
 
   useEffect(() => {
     return () => {
-      if (feedbackTimerRef.current) {
-        clearTimeout(feedbackTimerRef.current);
-      }
+      if (feedbackTimerRef.current) clearTimeout(feedbackTimerRef.current);
     };
   }, []);
 
   const showFeedback = (message: string) => {
-    if (feedbackTimerRef.current) {
-      clearTimeout(feedbackTimerRef.current);
-    }
+    if (feedbackTimerRef.current) clearTimeout(feedbackTimerRef.current);
     setFeedbackMessage(message);
     feedbackTimerRef.current = setTimeout(() => setFeedbackMessage(null), 1600);
   };
 
-  const handleDelete = async (id: Id<'players'>) => {
-    const player = playerDB.find((item) => item._id === id);
+  const handleDelete = (id: string) => {
+    const player = players.find((item) => item.id === id);
     if (!player) return;
-
     setDeletingId(id);
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 150));
-      await deletePlayer({ id });
+    setTimeout(() => {
+      removePlayer(id);
       Vibration.vibrate(50);
-      showFeedback(`Deleted ${player.playerName}`);
+      showFeedback(`Eliminado ${player.playerName}`);
       if (editingId === id) {
         setEditingId(null);
         reset({ playerName: '' });
       }
-    } catch (error) {
-      console.error(error);
-      showFeedback('Could not delete player');
-    } finally {
       setDeletingId(null);
-    }
+    }, 150);
   };
 
-  const handleEdit = (id: Id<'players'>) => {
-    const player = playerDB.find((item) => item._id === id);
+  const handleEdit = (id: string) => {
+    const player = players.find((item) => item.id === id);
     if (!player) return;
     setEditingId(id);
     setValue('playerName', player.playerName);
-    showFeedback(`Editing ${player.playerName}`);
+    showFeedback(`Editando ${player.playerName}`);
   };
 
-  const onSubmit: SubmitHandler<PlayerForm> = async (data) => {
-    if (!data.playerName || data.playerName.trim() === '') {
-      showFeedback('Type a player name first');
+  const onSubmit: SubmitHandler<PlayerForm> = (data) => {
+    const name = data.playerName.trim();
+    if (!name) {
+      showFeedback('Escribe un nombre primero');
       return;
     }
-
-    try {
-      if (editingId) {
-        await updatePlayer({ id: editingId, playerName: data.playerName.trim() });
-        setEditingId(null);
-        reset();
-        showFeedback(`Updated ${data.playerName.trim()}`);
-        return;
-      }
-
-      const createdId = await createPlayer({
-        playerName: data.playerName.trim(),
-        variant: getNextVariant(playerDB),
-      });
-
-      setNewlyCreatedId(createdId);
-      reset();
+    if (editingId) {
+      updatePlayer(editingId, name);
+      setEditingId(null);
+      showFeedback(`Actualizado ${name}`);
+    } else {
+      addPlayer(name);
       Vibration.vibrate([0, 20, 40, 20]);
-      showFeedback(`Added ${data.playerName.trim()}`);
-      setTimeout(() => setNewlyCreatedId(null), 800);
-    } catch (error) {
-      console.error(error);
-      showFeedback('Could not save player');
+      showFeedback(`Añadido ${name}`);
     }
+    reset();
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-slate-900" edges={['bottom', 'left', 'right']}>
-      <KeyboardAvoidingView
-        className="flex-1"
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-        keyboardVerticalOffset={insets.top + 12}>
-        <View className="flex-1">
-          <ScrollView
-            showsVerticalScrollIndicator={false}
-            keyboardShouldPersistTaps="handled"
-            contentContainerStyle={{
-              paddingHorizontal: 16,
-              paddingTop: 16,
-              paddingBottom: 220 + insets.bottom,
-            }}>
-            <HeaderIcon
-              title="Jugadores"
-              iconName={GroupIcon}
-              iconColorName={themeColors.gray}
-              subtitle="3-24 jugadores"
-            />
-            <Text className="my-4 text-center text-green-400">
-              {playerDB.length} jugadores
+    <SafeAreaView
+      style={{ flex: 1, backgroundColor: '#0f172a' }}
+      edges={['bottom', 'left', 'right']}>
+      <View style={{ flex: 1 }}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          keyboardShouldPersistTaps="handled"
+          contentContainerStyle={{
+            paddingHorizontal: 16,
+            paddingTop: 16,
+            paddingBottom: Math.max(insets.bottom, 24) + 140, // Space for the bottom sheet
+          }}>
+          <HeaderIcon
+            title="Jugadores"
+            iconName={GroupIcon}
+            iconColorName={themeColors.gray}
+            subtitle="3-24 jugadores"
+          />
+          <Text style={{ textAlign: 'center', color: '#4ade80', marginVertical: 16 }}>
+            {players.length} jugadores
+          </Text>
+          {feedbackMessage ? (
+            <Text style={{ textAlign: 'center', color: '#cbd5e1', marginBottom: 12 }}>
+              {feedbackMessage}
             </Text>
-
-            {feedbackMessage ? (
-              <Text className="mb-3 text-center text-sm text-slate-300">
-                {feedbackMessage}
-              </Text>
-            ) : null}
-
-            <View className="flex flex-col gap-3">
-              {playerDB.map((player) => (
-                <PlayerPill
-                  key={player._id}
-                  name={player.playerName}
-                  initial={player.playerName[0]}
-                  iconName={Pencil}
-                  iconColor="green-400"
-                  variant={player.variant}
-                  onDelete={() => handleDelete(player._id)}
-                  onEdit={() => handleEdit(player._id)}
-                  isNew={newlyCreatedId === player._id}
-                  isDeleting={deletingId === player._id}
-                />
-              ))}
-            </View>
-          </ScrollView>
-
-          <Sheet
-            keyboardOffset={insets.top + 80}
-            contentClassName="px-5 py-6 flex flex-col justify-between flex-1 gap-2">
-            <View className="flex flex-row items-center gap-2">
-              <Controller
-                control={control}
-                name="playerName"
-                render={({ field: { value, onChange } }) => (
-                  <StyledInput
-                    placeholder="Añadir jugador"
-                    containerClassName="flex-1"
-                    value={value}
-                    onChangeText={onChange}
-                  />
-                )}
+          ) : null}
+          <View style={{ gap: 12 }}>
+            {players.map((player) => (
+              <PlayerPill
+                key={player.id}
+                name={player.playerName}
+                initial={player.playerName ? player.playerName[0] : '?'}
+                iconName={PencilIcon}
+                iconColor="green-400"
+                variant={player.variant}
+                onDelete={() => handleDelete(player.id)}
+                onEdit={() => handleEdit(player.id)}
+                isDeleting={deletingId === player.id}
               />
-              <Pressable onPress={handleSubmit(onSubmit)} className="shrink-0">
-                {/* <StyledGradient
-                  colorNames={['green-400', 'emerald-500']}
-                  className="h-12 w-12 items-center justify-center rounded-full active:opacity-75">
-                  <StyledIcon
-                    Icon={editingId ? PencilIcon : PlusIcon}
-                    colorName={themeColors.background}
-                  />
-                </StyledGradient> */}
-              </Pressable>
-            </View>
-
-            <Pressable className="mt-2 w-full active:opacity-90">
-              {/* <StyledGradient
-                colorNames={['slate-700', 'gray-800']}
-                className="w-full items-center rounded-xl px-4 py-4">
-                <Text className="font-bold text-white">Cancelar</Text>
-              </StyledGradient> */}
+            ))}
+          </View>
+        </ScrollView>
+        <Sheet keyboardOffset={insets.top + 80} contentClassName="px-5 py-6 flex-col gap-2">
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+            <Controller
+              control={control}
+              name="playerName"
+              render={({ field: { value, onChange } }) => (
+                <StyledInput
+                  placeholder="Añadir jugador"
+                  containerClassName="flex-1"
+                  value={value}
+                  onChangeText={onChange}
+                  onSubmitEditing={handleSubmit(onSubmit)}
+                />
+              )}
+            />
+            <Pressable onPress={handleSubmit(onSubmit)}>
+              <LinearGradient
+                colors={[themeColors.onlineGradientStart, themeColors.onlineGradientEnd]}
+                style={{
+                  width: 48,
+                  height: 48,
+                  borderRadius: 24,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                {editingId ? <PencilIcon color="#fff" /> : <PlusIcon color="#fff" />}
+              </LinearGradient>
             </Pressable>
-          </Sheet>
-        </View>
-      </KeyboardAvoidingView>
+          </View>
+          <Pressable
+            onPress={() => {
+              setEditingId(null);
+              reset();
+              router.back();
+            }}
+            style={{ marginTop: 8 }}>
+            <View
+              style={{
+                width: '100%',
+                alignItems: 'center',
+                backgroundColor: '#334155',
+                paddingVertical: 16,
+                borderRadius: 12,
+              }}>
+              <Text style={{ fontWeight: 'bold', color: 'white' }}>
+                {editingId ? 'Cancelar Edición' : 'Volver'}
+              </Text>
+            </View>
+          </Pressable>
+        </Sheet>
+      </View>
     </SafeAreaView>
   );
 }

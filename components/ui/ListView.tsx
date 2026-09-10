@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Pressable, Text, View, ScrollView } from 'react-native';
 import StyledIcon from './StyledIcon';
-// import StyledGradient from './StyledGradient';
+import { LinearGradient } from 'expo-linear-gradient';
 import { ChevronRight } from 'lucide-react-native';
 import { themeColors } from '@lib/theme';
 
@@ -49,8 +49,7 @@ export default function ListView({
             className={itemClassName}
             onPress={item.onPress}>
             <View className="flex-row items-center gap-2">
-              <Text
-                className={`font-bold ${finalLabelClassName} group-active:text-slate-300`}>
+              <Text className={`font-bold ${finalLabelClassName} group-active:text-slate-300`}>
                 {item.label}
               </Text>
               {item.labelSuffix ? (
@@ -64,8 +63,7 @@ export default function ListView({
             {(item.rightText || shouldShowEndIcon) && (
               <View className="flex-row items-center">
                 {item.rightText ? (
-                  <Text
-                    className={`mr-2 ${finalRightTextClassName} group-active:text-slate-300`}>
+                  <Text className={`mr-2 ${finalRightTextClassName} group-active:text-slate-300`}>
                     {item.rightText}
                   </Text>
                 ) : null}
@@ -97,12 +95,12 @@ export default function ListView({
         <ScrollView showsVerticalScrollIndicator={false} className="flex-1">
           {listContent}
         </ScrollView>
-        {/* <StyledGradient
-          colorNames={['transparent', 'slate-900']}
+        <LinearGradient
+          colors={['transparent', themeColors.background]}
           start={{ x: 0, y: 0 }}
           end={{ x: 0, y: 1 }}
           className="pointer-events-none absolute -bottom-4 left-0 right-0 h-14"
-        /> */}
+        />
       </View>
     );
   }

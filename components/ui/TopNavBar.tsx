@@ -2,7 +2,7 @@ import { useRouter } from 'expo-router';
 import { Pressable, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import StyledIcon from './StyledIcon';
-import { BadgeQuestionMark, ChevronRight, Home } from 'lucide-react-native';
+import { BadgeQuestionMark, ChevronLeft, ChevronRight, Home } from 'lucide-react-native';
 import { themeColors } from '@lib/theme';
 
 interface TopNavBarProps {
@@ -40,14 +40,13 @@ export default function TopNavBar({ variant = 'home' }: TopNavBarProps) {
             accessibilityLabel="Go to home"
             className="rounded-full bg-slate-700/60 p-3 active:bg-slate-600"
             onPress={navigateHome}>
-
             <Home size={18} color={themeColors.text}></Home>
           </Pressable>
           <Pressable
             accessibilityLabel="Go to about"
             className="rounded-full bg-slate-700/60 p-3 active:bg-slate-600"
             onPress={navigateAbout}>
-            <BadgeQuestionMark  size={18} color={themeColors.gray} />
+            <BadgeQuestionMark size={18} color={themeColors.gray} />
           </Pressable>
         </>
       ) : (
@@ -55,7 +54,7 @@ export default function TopNavBar({ variant = 'home' }: TopNavBarProps) {
           accessibilityLabel="Go back"
           className="rounded-full bg-slate-700/60 p-3 active:bg-slate-600"
           onPress={goBack}>
-          <StyledIcon Icon={ChevronRight} size={18} colorName="slate-100" />
+          <StyledIcon Icon={ChevronLeft} size={18} colorName="slate-100" />
         </Pressable>
       )}
     </View>

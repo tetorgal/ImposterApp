@@ -1,65 +1,65 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, ScrollView, Pressable, KeyboardAvoidingView, Platform } from 'react-native';
 
 import StyledCheckBox from '@components/ui/StyledCheckBox';
-// import StyledGradient from '@components/ui/StyledGradient';
 import Sheet from '@components/ui/Sheet';
 import ToggleSwitch from 'toggle-switch-react-native';
-import { HeaderIcon } from '@components/ui/HeaderIcon';
 import { useRouter } from 'expo-router';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import {
-  ChevronRight,
-  CircleIcon,
-  Clock,
-  FlagIcon,
-  GroupIcon,
-  HatGlasses,
-  SearchIcon,
-  Smartphone,
-} from 'lucide-react-native';
+import { ChevronRight, Clock, FlagIcon, GroupIcon, SearchIcon, Users } from 'lucide-react-native';
 import { themeColors } from '@lib/theme';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useGameStore, GameMode } from '@lib/store';
 
 const GAME_MODE_OPTIONS = [
   {
-    label: 'Clasico',
-    value: 'classic',
+    label: 'Clásico',
+    value: 'classic' as GameMode,
     imageSource: require('@assets/sus-dog.png'),
   },
   {
     label: 'Misterioso',
-    value: 'mysterious',
+    value: 'mysterious' as GameMode,
     imageSource: require('@assets/icon.png'),
   },
   {
     label: 'Caos',
-    value: 'chaos',
+    value: 'chaos' as GameMode,
     imageSource: require('@assets/adaptive-icon.png'),
   },
 ];
 
 export default function OfflinePregame() {
   const insets = useSafeAreaInsets();
-
-  const [selectedMode, setSelectedMode] = useState<string>('classic');
-  const players = 8;
-  const [impostors, setImpostors] = useState<number>(2);
-  const [hintsEnabled, setHintsEnabled] = useState<boolean>(true);
   const router = useRouter();
 
+  const playersCount = useGameStore((state) => state.players.length);
+  const gameConfig = useGameStore((state) => state.gameConfig);
+  const setGameConfig = useGameStore((state) => state.setGameConfig);
+  const startGame = useGameStore((state) => state.startGame);
+
   const decrementImpostors = () => {
-    setImpostors((current) => Math.max(1, current - 1));
+    setGameConfig({ impostors: Math.max(1, gameConfig.impostors - 1) });
   };
 
   const incrementImpostors = () => {
-    setImpostors((current) => Math.min(players - 1, current + 1));
+    setGameConfig({ impostors: Math.min(Math.max(1, playersCount - 1), gameConfig.impostors + 1) });
+  };
+
+  const handleStartGame = () => {
+    if (playersCount < 3) {
+      alert('Necesitas al menos 3 jugadores para jugar.');
+      return;
+    }
+    startGame();
+    router.navigate('/offline/offline-rounds');
   };
 
   return (
-    <SafeAreaView edges={['bottom', 'left', 'right']} style={{ flex: 1 }}>
-      <View className="flex-1 bg-slate-900">
-        <KeyboardAvoidingView
+    <SafeAreaView
+      edges={['bottom', 'left', 'right']}
+      style={{ flex: 1, backgroundColor: '#020617' }}>
+      <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         keyboardVerticalOffset={insets.top + 12}>
@@ -67,173 +67,152 @@ export default function OfflinePregame() {
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={{
-            paddingHorizontal: 16,
-            paddingTop: 4,
+            paddingHorizontal: 24,
+            paddingTop: 32,
             paddingBottom: 220 + insets.bottom,
-            flexGrow: 1,
-            justifyContent: 'flex-start',
           }}>
-          <View className="-mt-2">
-            <HeaderIcon title="Offline" iconName={Smartphone} iconColorName={themeColors.accent} />
+          <View className="mb-10">
+            <Text className="mb-2 text-4xl font-bold tracking-tighter text-white">Sala Local</Text>
+            <Text className="text-slate-400">Configura la partida y los jugadores.</Text>
           </View>
 
-       <View className="-mt-1 w-full">
-            <Text className="font-poppins mb-2 text-center  text-gray-200">Modo de juego</Text>
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              className="w-full"
-              contentContainerStyle={{ paddingRight: 12 }}>
-              <View className="flex-row">
-                {GAME_MODE_OPTIONS.map((option, index) => (
-                  <View
-                    key={option.value}
-                    className={index < GAME_MODE_OPTIONS.length - 1 ? 'mr-2' : ''}>
-                    <StyledCheckBox
-                      title={option.label}
-                      imageSource={option.imageSource}
-                      selected={selectedMode === option.value}
-                      onPress={() => setSelectedMode(option.value)}
-                      className="mb-0 w-44"
-                    />
-                  </View>
-                ))}
-              </View>
-            </ScrollView>
-          </View>
+          <Text className="mb-4 text-xs font-bold uppercase tracking-widest text-slate-500">
+            Modo de juego
+          </Text>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            className="-mx-6 mb-8 w-full px-6"
+            contentContainerStyle={{ paddingRight: 24 }}>
+            <View className="flex-row gap-3">
+              {GAME_MODE_OPTIONS.map((option) => (
+                <StyledCheckBox
+                  key={option.value}
+                  title={option.label}
+                  imageSource={option.imageSource}
+                  selected={gameConfig.mode === option.value}
+                  onPress={() => setGameConfig({ mode: option.value })}
+                  className="mb-0 w-40"
+                />
+              ))}
+            </View>
+          </ScrollView>
 
-          <Text className="font-poppins mb-2 mt-1 text-center  text-gray-200">
-            Configuración del juego
+          <Text className="mb-4 text-xs font-bold uppercase tracking-widest text-slate-500">
+            Ajustes
           </Text>
 
-          <View className="my-4 gap-2 rounded-xl border border-slate-700 bg-slate-800 px-4 py-2">
+          <View className="mb-8 overflow-hidden rounded-3xl border border-slate-800 bg-slate-900">
             <Pressable
-              className="group flex-row items-center justify-between py-2"
+              className="flex-row items-center justify-between border-b border-slate-800/50 p-5 active:bg-slate-800/50"
               onPress={() => router.navigate('/offline/offline-players')}>
-              <View className="flex flex-row items-center gap-2 ">
-                <View className="group-active:opacity-70">
-                  <GroupIcon
-
-                    color={themeColors.primary}
-                    size={24}></GroupIcon>
+              <View className="flex-row items-center gap-3">
+                <View className="h-10 w-10 items-center justify-center rounded-full bg-indigo-500/10">
+                  <GroupIcon color="#6366f1" size={20} />
                 </View>
-                <Text className="font-poppins font-bold text-slate-100 group-active:text-slate-300">
-                  Jugadores
-                </Text>
+                <Text className="text-lg font-bold tracking-tight text-slate-200">Jugadores</Text>
               </View>
-              <View className="flex-row items-center">
-                <Text className="font-poppins mr-2 text-slate-100 group-active:text-slate-300">
-                  {players}
-                </Text>
-                <View className="group-active:opacity-70">
-                  <ChevronRight size={12} color={themeColors.border} />
-                </View>
+              <View className="flex-row items-center gap-2">
+                <Text className="font-bold text-slate-400">{playersCount}</Text>
+                <ChevronRight size={20} color="#475569" />
               </View>
             </Pressable>
 
-            <View className="h-px bg-slate-700" />
-
-            <View className="flex-row items-center justify-between py-2">
-              <View className="flex-row items-center gap-1">
-                <HatGlasses  color={themeColors.error} size={24}></HatGlasses>
-                <Text className="font-poppins font-bold text-slate-100">Impostores</Text>
-                <View className="ml-1">
-                  <CircleIcon  size={12} color={themeColors.border} />
+            <View className="flex-row items-center justify-between border-b border-slate-800/50 p-5">
+              <View className="flex-row items-center gap-3">
+                <View className="h-10 w-10 items-center justify-center rounded-full bg-red-500/10">
+                  <Users color="#ef4444" size={20} />
                 </View>
+                <Text className="text-lg font-bold tracking-tight text-slate-200">Impostores</Text>
               </View>
-              <View className="flex-row items-center">
+              <View className="flex-row items-center rounded-full border border-slate-800 bg-slate-950 p-1">
                 <Pressable
-                  className="h-7 w-7  shrink-0 items-center justify-center rounded-full  bg-slate-700 active:bg-slate-600"
+                  className="h-8 w-8 items-center justify-center rounded-full active:bg-slate-800"
                   onPress={decrementImpostors}>
-                  <Text className="font-poppins text-white">-</Text>
+                  <Text className="font-bold text-slate-400">-</Text>
                 </Pressable>
-                <Text className="font-poppins mx-3 text-slate-100">{impostors}</Text>
+                <Text className="w-8 text-center font-bold text-slate-200">
+                  {gameConfig.impostors}
+                </Text>
                 <Pressable
-                  className="h-7 w-7 shrink-0 items-center justify-center rounded-full bg-green-500/30 active:bg-green-400"
+                  className="h-8 w-8 items-center justify-center rounded-full bg-slate-800 active:bg-slate-700"
                   onPress={incrementImpostors}>
-                  <Text className="font-poppins text-white">+</Text>
+                  <Text className="font-bold text-slate-200">+</Text>
                 </Pressable>
               </View>
             </View>
 
-            <View className="h-px bg-slate-700" />
-
-            <View className="flex-row items-center justify-between py-2">
-              <View className="flex flex-row gap-2">
-                <SearchIcon  color={themeColors.accent} size={24}></SearchIcon>
-                <Text className="font-poppins font-bold text-slate-100">Pista para impostores</Text>
+            <View className="flex-row items-center justify-between p-5">
+              <View className="flex-row items-center gap-3">
+                <View className="h-10 w-10 items-center justify-center rounded-full bg-amber-500/10">
+                  <SearchIcon color="#f59e0b" size={20} />
+                </View>
+                <Text className="text-lg font-bold tracking-tight text-slate-200">
+                  Pistas para impostores
+                </Text>
               </View>
               <ToggleSwitch
-                isOn={hintsEnabled}
-                onColor="green"
-                offColor="gray"
+                isOn={gameConfig.hintsEnabled}
+                onColor="#10b981"
+                offColor="#334155"
                 size="small"
-                onToggle={setHintsEnabled}
+                onToggle={(val) => setGameConfig({ hintsEnabled: val })}
               />
             </View>
           </View>
 
-          {/* ROUNDS TIME LIST */}
-          <View className="gap-2 rounded-xl border border-slate-700 bg-slate-800 px-4 py-2">
-            <Pressable className="group flex-row items-center justify-between py-2">
-              <View className="flex flex-row items-center gap-2 ">
-                <View className="group-active:opacity-70">
-                  <FlagIcon
-                    color={themeColors.textMuted}
-                    size={24}></FlagIcon>
+          <Text className="mb-4 text-xs font-bold uppercase tracking-widest text-slate-500">
+            Tiempo
+          </Text>
+
+          <View className="mb-8 overflow-hidden rounded-3xl border border-slate-800 bg-slate-900">
+            <Pressable className="flex-row items-center justify-between border-b border-slate-800/50 p-5">
+              <View className="flex-row items-center gap-3">
+                <View className="h-10 w-10 items-center justify-center rounded-full bg-teal-500/10">
+                  <FlagIcon color="#14b8a6" size={20} />
                 </View>
-                <Text className="font-poppins font-bold text-slate-100 group-active:text-slate-300">
-                  Rondas
-                </Text>
+                <Text className="text-lg font-bold tracking-tight text-slate-200">Rondas</Text>
               </View>
-              <View className="flex-row items-center">
-                <Text className="font-poppins mr-2 text-slate-100 group-active:text-slate-300">
-                  {players} Rondas
-                </Text>
-                <View className="group-active:opacity-70">
-                  <ChevronRight  size={12} color={themeColors.textMuted} />
-                </View>
+              <View className="flex-row items-center gap-2">
+                <Text className="font-bold text-slate-400">{gameConfig.rounds}</Text>
+                <ChevronRight size={20} color="#475569" />
               </View>
             </Pressable>
 
             <Pressable
-              className="group flex-row items-center justify-between py-2"
+              className="flex-row items-center justify-between p-5 active:bg-slate-800/50"
               onPress={() => router.navigate('/offline/offline-time')}>
-              <View className="flex flex-row items-center gap-2 ">
-                <View className="group-active:opacity-70">
-                  <Clock  color={themeColors.textMuted} size={24}></Clock>
+              <View className="flex-row items-center gap-3">
+                <View className="h-10 w-10 items-center justify-center rounded-full bg-blue-500/10">
+                  <Clock color="#3b82f6" size={20} />
                 </View>
-                <Text className="font-poppins font-bold text-slate-100 group-active:text-slate-300">
-                  Duración
-                </Text>
+                <Text className="text-lg font-bold tracking-tight text-slate-200">Duración</Text>
               </View>
-              <View className="flex-row items-center">
-                <Text className="font-poppins mr-2 text-slate-100 group-active:text-slate-300">
-                  {players} Minutos
-                </Text>
-                <View className="group-active:opacity-70">
-                  <ChevronRight size={12} color={themeColors.textMuted} />
-                </View>
+              <View className="flex-row items-center gap-2">
+                <Text className="font-bold text-slate-400">{gameConfig.durationMinutes} min</Text>
+                <ChevronRight size={20} color="#475569" />
               </View>
             </Pressable>
           </View>
         </ScrollView>
-
       </KeyboardAvoidingView>
-      </View>
-        <Sheet>
-          <Pressable className="w-full active:opacity-90">
-            <LinearGradient
-              colors={[
-                themeColors.onlineGradientStart,
-                themeColors.onlineGradientMiddle,
-                themeColors.onlineGradientEnd,
-              ]}
-              className="w-full min-h-[72px] items-center justify-center rounded-2xl px-5">
-              <Text className="text-xl font-bold text-white">Iniciar juego</Text>
-            </LinearGradient>
-          </Pressable>
-        </Sheet>
+
+      <Sheet includeSafeAreaPadding={true} contentClassName="px-6 py-4">
+        <Pressable className="w-full active:opacity-90" onPress={handleStartGame}>
+          <View
+            style={{
+              width: '100%',
+              alignItems: 'center',
+              backgroundColor: '#059669',
+              paddingVertical: 16,
+              borderRadius: 12,
+            }}>
+            <Text className="text-lg font-bold uppercase tracking-wider text-white">
+              Iniciar Partida
+            </Text>
+          </View>
+        </Pressable>
+      </Sheet>
     </SafeAreaView>
   );
 }
